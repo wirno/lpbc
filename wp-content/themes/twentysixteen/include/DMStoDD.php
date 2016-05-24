@@ -15,25 +15,25 @@ function DMStoDD($input){
 		// si c'est pas un chiffre ou un point.
 		else{
 			// ajout du dernier nombre de la chaine au tableau.
-			if(is_numeric($str) && sizeof($lat) == 2) {
-				$lat[] = $str;
+			if(is_numeric($str) && sizeof($long) == 2) {
+				$long[] = $str;
 				$str="";
 			}
 			// on fait gaffe qu'on sorte pas de la chaine et que si le prochain caractère est un chiffre(on se situe en dehors des chiffre a ce moment la), on ajout la chaine a un tableau. 
 			elseif( $i+1<strlen($input) &&(is_numeric($input[$i+1])) ){
-				if(sizeof($long) ==3){
-					$lat[] = $str;
+				if(sizeof($lat) ==3){
+					$long[] = $str;
 				}
 				else{
-					$long[] = $str;
+					$lat[] = $str;
 				}
 				$str="";
 			}
 		}
 	}
 	$return_statement = array();
-	$return_statement['long'] = $long;
 	$return_statement['lat'] = $lat;
+	$return_statement['long'] = $long;
 
 	return $return_statement;
 }

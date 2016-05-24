@@ -60,7 +60,7 @@ var map;
 var infowindow;
 
 function initMap() {
-  var pyrmont = {lat: <?php echo $longitude; ?>, lng: <?php echo $lattitude; ?>};
+  var pyrmont = {lat: <?php echo $lattitude; ?>, lng: <?php echo $longitude; ?>};
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
@@ -89,7 +89,8 @@ function createMarker(place) {
   var placeLoc = place.geometry.location;
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
   });
 
   google.maps.event.addListener(marker, 'click', function() {
