@@ -8,11 +8,12 @@
  */
 
 get_header(); ?>
-
 <?php if (have_posts()) : ?>
     <!--  Si j'ai des Posts -->
     <div class="content">
     <?php while (have_posts()) : the_post(); ?>
+    <?php $term_list = wp_get_post_terms($post->ID, 'Style', array("fields" => "all")); ?>
+
     	<h1 class="fullType"><?php the_title()?></h1>
     	<div><?php the_field('nom'); ?></div>
     	<div><?php the_field('nom_local'); ?></div>
@@ -27,7 +28,6 @@ get_header(); ?>
     	<div><?php the_field('debut_construction'); ?></div>
     	<div><?php the_field('fin_construction'); ?></div>
     	<div><?php the_field('usage_actuel'); ?></div>
-    	<div><?php the_field('usage_initial'); ?></div>
     	<div><?php the_field('proprietaire_actuel'); ?></div>
     	<div><?php the_field('proprietaire_initial'); ?></div>
     	<div><?php the_field('duree_visite'); ?></div>
@@ -53,6 +53,75 @@ $longitude = ConvertDMSToDD($data['long']);
 $lattitude = ConvertDMSToDD($data['lat']);
  ?>
 
+<?php 
+
+$args= array(
+  'post_type' =>'evenements',
+  'orderby'=>'asc',
+  'meta_query' => array(
+    array(
+      'key' => 'Chateau', // name of custom field
+      'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+      'compare' => 'LIKE'
+    )
+  )
+);
+$the_query = new WP_Query( $args );
+
+var_dump($the_query);
+if( $the_query->have_posts() ):
+  echo '<br/>';
+  echo '=========================toto===========================';
+  echo '<br/>';
+  while ( $the_query->have_posts() ) : $the_query->the_post();
+    the_field('nom');
+  endwhile;
+endif;
+
+wp_reset_query();
+
+echo '<br/>';
+echo '=======================================================';
+echo '<br/>';
+
+$args= array(
+  'post_type' =>'monuments-et-musees',
+  'orderby'=>'asc',
+  'meta_query' => array(
+    array(
+      'key' => 'Chateau', // name of custom field
+      'value' => '"' . get_the_ID() . '"', // matches exaclty "123", not just 123. This prevents a match for "1234"
+      'compare' => 'LIKE'
+    )
+  )
+);
+$the_query = new WP_Query( $args );
+var_dump($the_query);
+
+wp_reset_query();
+
+echo '<br/>';
+echo '=======================================================';
+echo '<br/>';
+
+$args = array(
+  'post_type' => 'chateaux',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'Style',
+      'field'    => 'slug',
+      'terms'    => $term_list[0]->slug
+    )
+  )
+);
+$the_query = new WP_Query( $args );
+var_dump($the_query);
+
+
+
+ ?>
+
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdvOlziA7luvB_ViQePNMTuPIMIWVaTms&libraries=places"></script>
 
 <script type="text/javascript">
@@ -72,7 +141,7 @@ function initMap() {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pyrmont,
-    radius: 500,
+    radius: 5000,
     types: ['restaurant']
   }, callback);
 }

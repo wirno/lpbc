@@ -20,8 +20,8 @@ get_header(); ?>
 		while ( have_posts() ) : the_post();
 
 			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
 
+			the_content();
 			// End of the loop.
 		endwhile;
 		?>
