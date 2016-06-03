@@ -1,59 +1,29 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
- */
-?>
+			<!-- footer -->
+			<footer class="footer" role="contentinfo">
 
-		</div><!-- .site-content -->
+				<!-- copyright -->
+				<p class="copyright">
+					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'html5blank'); ?>
+					<a href="//wordpress.org" title="WordPress">WordPress</a>.
+				</p>
+				<!-- /copyright -->
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<?php if ( has_nav_menu( 'primary' ) ) : ?>
-				<nav class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Primary Menu', 'twentysixteen' ); ?>">
-					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'primary',
-							'menu_class'     => 'primary-menu',
-						 ) );
-					?>
-				</nav><!-- .main-navigation -->
-			<?php endif; ?>
+			</footer>
+			<!-- /footer -->
 
-			<?php if ( has_nav_menu( 'social' ) ) : ?>
-				<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'twentysixteen' ); ?>">
-					<?php
-						wp_nav_menu( array(
-							'theme_location' => 'social',
-							'menu_class'     => 'social-links-menu',
-							'depth'          => 1,
-							'link_before'    => '<span class="screen-reader-text">',
-							'link_after'     => '</span>',
-						) );
-					?>
-				</nav><!-- .social-navigation -->
-			<?php endif; ?>
+		</div>
+		<!-- /wrapper -->
 
-			<div class="site-info">
-				<?php
-					/**
-					 * Fires before the twentysixteen footer text for footer customization.
-					 *
-					 * @since Twenty Sixteen 1.0
-					 */
-					do_action( 'twentysixteen_credits' );
-				?>
-				<span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentysixteen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentysixteen' ), 'WordPress' ); ?></a>
-			</div><!-- .site-info -->
-		</footer><!-- .site-footer -->
-	</div><!-- .site-inner -->
-</div><!-- .site -->
+		<?php wp_footer(); ?>
 
-<?php wp_footer(); ?>
-</body>
+		<!-- analytics -->
+		<script>
+		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
+		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
+		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
+		ga('send', 'pageview');
+		</script>
+	</body>
 </html>

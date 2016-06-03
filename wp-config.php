@@ -38,6 +38,8 @@ define('DB_CHARSET', 'utf8mb4');
   */
 define('DB_COLLATE', '');
 
+define( 'WP_DEFAULT_THEME', 'default' );
+
 /**#@+
  * Clefs uniques d'authentification et salage.
  *

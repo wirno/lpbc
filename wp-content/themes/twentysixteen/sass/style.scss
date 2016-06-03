@@ -1,0 +1,21 @@
+/*
+	Theme Name: twentysixteen
+	Theme URI: http://www.lesplusbeauxchateaux.com
+	Description: Thème principal pour Les Plus Beaux Châteaux.
+	Version: 1.0
+	Author: Paul Sniezak, Matthieu Livet
+	Tags: HTML5, CSS3, JS, Custom, LPBC, default
+*/
+
+/* ---------- Base imports ---------- */
+@import "partials/reset";
+@import "partials/main";
+@import "partials/fonts";
+
+/* ---------- Vars ---------- */
+
+
+/* ---------- Imports ---------- */
+@import "views/header";
+@import "views/home";
+@import "views/footer";
