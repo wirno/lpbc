@@ -1,0 +1,236 @@
+.remodal-connection {
+  padding: 0;
+  h3 {
+    background-color: #373737;
+    height: 66px;
+    color: #eece84;
+    text-transform: uppercase;
+    font-family: 'latobold';
+    font-size: 16px;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    line-height: 66px;
+  }
+}
+
+.connection-form {
+  margin-left: auto;
+  margin-top: 58px;
+    margin-right: auto;
+  width: 70%;
+  background: #fafafa;
+
+  .group { 
+    position: relative; 
+    margin-bottom: 45px; 
+
+    &:first-child {
+      margin-bottom: 42px;
+    }
+  }
+
+  input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    -webkit-appearance: none;
+    display: block;
+    background: #fafafa;
+    color: #636363;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #eece84;
+  }
+
+  input:-webkit-autofill {
+    color: #fff !important;
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+  input:focus { outline: none; }
+
+
+  /* Label */
+
+  label {
+    color: #999; 
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: all 0.2s ease;
+  }
+
+
+  /* active */
+
+  input:focus ~ label, input.used ~ label {
+    top: -20px;
+    transform: scale(.75); left: -2px;
+    /* font-size: 14px; */
+    color: #eece84;
+  }
+
+  .button-form {
+    font: inherit;
+
+  display: inline-block;
+  overflow: visible;
+
+  min-width: 200px;
+  margin: 0;
+  padding: 8px 0;
+
+  cursor: pointer;
+  -webkit-transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  line-height: 18px;
+
+  outline: 0;
+
+  text-transform: uppercase;
+  font-family: 'latomedium';
+  font-size: 14px;
+  color: #ececec;
+  letter-spacing: 1px;
+  background-color: #373737;
+  border: 2px solid #eece84;
+  border-radius: 25px;
+  }
+
+  /* Underline */
+
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .bar:before, .bar:after {
+    content: '';
+    height: 2px; 
+    width: 0;
+    bottom: 1px; 
+    position: absolute;
+    background: #eece84; 
+    transition: all 0.2s ease;
+  }
+
+  .bar:before { left: 50%; }
+
+  .bar:after { right: 50%; }
+
+
+  /* active */
+
+  input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
+
+
+  /* Highlight */
+
+  .highlight {
+    position: absolute;
+    height: 60%; 
+    width: 100px; 
+    top: 25%; 
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+
+  /* active */
+
+  input:focus ~ .highlight {
+    animation: inputHighlighter 0.3s ease;
+  }
+
+
+  /* Animations */
+
+  @keyframes inputHighlighter {
+    from { background: #eece84; }
+    to  { width: 0; background: transparent; }
+  }
+
+  /* Ripples container */
+
+  .ripples {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+  }
+
+
+  /* Ripples circle */
+
+  .ripplesCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .ripples.is-active .ripplesCircle {
+    animation: ripples .4s ease-in;
+  }
+
+
+  /* Ripples animation */
+
+  @keyframes ripples {
+    0% { opacity: 0; }
+
+    25% { opacity: 1; }
+
+    100% {
+      width: 200%;
+      padding-bottom: 200%;
+      opacity: 0;
+    }
+  }
+}
+
+ /* Button */
+  .button-form {
+    min-width: 0;
+    width: 140px;    
+    margin-bottom: 6px;
+  }
+
+.no-account {
+    margin-top: 42px;
+    margin-bottom: 6px;
+  }
+
+  .button-inscription {
+    margin-bottom: 22px;
+  }
+
+.forgot {
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+.parag {
+  font-family: 'lato';
+}
+
+
+.connection-form .verif:focus ~ label, .connection-form .verif.used ~ label {
+    left: -18px !important;
+}

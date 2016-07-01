@@ -146,6 +146,8 @@
   border-radius: 0 0 5px 5px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-top: none;
+      margin-top: 6px;
+    margin-left: 9px;
   border-bottom: none;
   list-style: none;
   -webkit-transition: all 0.3s ease-out;
@@ -164,6 +166,7 @@
   display: block;
   text-decoration: none;
   color: #333;
+  text-align: center;
   padding: 10px 0;
   transition: all 0.3s ease-out;
   border-bottom: 1px solid #e6e8ea; }
@@ -178,12 +181,11 @@
 
 /* Hover state */
 .dropdown-button .dropdown li:hover a {
-  color: #57a9d9; }
+  color: #f2d374; }
 
 /* Active state */
 .dropdown-button.active {
   border-radius: 5px 5px 0 0;
-  background: #f2d374;
   box-shadow: none;
   border-bottom: none;
   color: white; }

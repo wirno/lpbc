@@ -4,7 +4,7 @@ Donate link: https://usersultra.com/donate.html
 Tags: users, users community, community, members, profiles, subscription, recurring, paypal, membership
 Requires at least: 3.0.1
 Tested up to: 4.5
-Stable tag: 1.5.83
+Stable tag: 1.5.84
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -400,6 +400,12 @@ Initial release.
 10. Dahsboard
 
 == Changelog ==
+
+= 1.5.84(06-16-2016) =
+* Improvement - Language files updated in Spanish.
+* Improvement - User Dashboard Improvement.
+* Bug Fix - Update on WooCommerce Library.
+
 
 = 1.5.83(05-21-2016) =
 * Improvement - Conflic with some custom themes.

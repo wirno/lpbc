@@ -1,0 +1,339 @@
+<?php get_header(); ?>
+
+<main id="main" role="main">
+	<!-- Recherche châteaux -->
+	<section id="castle-search-header" class="search-result-header header-global">
+		<div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/Esclimont.jpg');">
+			<div class="overlay"></div>
+			<div class="discover-content">
+				<h1>Découvrez le Château d'Esclimont</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet 
+					sed eu felis.
+				</p>
+			</div>
+		</div>
+		<div class="link">
+			<span>
+				<p>Image : Châteaux d'Esclimont</p>
+				<div class="cta">
+					<a href="http://lpbc.dev/chateaux/chateau-desclimont/">Voir</a>
+				</div>
+			</span>
+		</div>
+	</section>
+	<!-- /Recherche châteaux -->
+
+	<!-- Populaires -->
+	<section id="reknown">
+		<div class="container">
+			<span>
+				<h2>Styles populaires</h2>
+				<ul>
+					<li><a class="active" href="">Gothique</a> <span>0</span></li>
+					<li><a href="">Médiéval</a> <span>2</span></li>
+					<li><a href="">Néo-gothique</a> <span>1</span></li>
+					<li><a href="">Renaissance</a> <span>3</span></li>
+				</ul>
+			</span>
+		</div>
+	</section>
+	<!-- /Populaires -->
+	<div class="clear"></div>
+	<!-- Result -->
+	<section id="result">
+		<div class="container">
+			<div class="sidebar filter-sticker">
+				<div class="search-menu">
+					<div class="filter-button">
+						<p class="left">Régions</p>
+
+						<?php 
+						$terms = get_terms('regions', array('hide_empty' => false));
+						$count_regions_post = [];
+						if($terms){
+							foreach ($terms as $key => $value) {
+								$args = array(
+									'post_type' => 'chateaux',
+									'tax_query' => array(
+										array(
+											'taxonomy' => 'regions',
+											'field'    => 'slug',
+											'terms'    => $value->slug
+											)
+										)
+									);
+								$chateau_query = new WP_Query($args);
+								$count_regions_post[$value->slug] = array(
+									'chateau'=>$chateau_query->post_count
+									);
+							}
+						}
+						$total_region = 0;
+						foreach ($count_regions_post as $key => $value) {
+							$total_region += $value['chateau'];
+						}
+						?>
+						<p class="right"><?php print($total_region); ?></p>
+						<div class="clear"></div>
+					</div>
+					<div id="myDropdown" class="dropdown-content">
+						<?php foreach ($count_regions_post as $key => $value) {
+							if($value['chateau'] != 0){
+								?><div class="filter" data-filter=".category-<?php print($key);?>">
+								<p class="left"><?php print($key); ?></p>
+								<p class="right"><?php print($value['chateau']); ?></p>
+								<div class="clear"></div>
+							</div>
+							<div class="line"></div>
+							<?php
+						}
+					} 
+					?>
+				</div>
+
+				<?php
+
+
+				$terms = get_terms('style', array('hide_empty' => false));
+				$count_style_post = [];
+				if($terms){
+					foreach ($terms as $key => $value) {
+						$args = array(
+							'post_type' => 'chateaux',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'style',
+									'field'    => 'slug',
+									'terms'    => $value->slug
+									)
+								)
+							);
+						$chateau_query = new WP_Query($args);
+						$count_style_post[$value->slug] = array(
+							'chateau'=>$chateau_query->post_count
+							);
+					}
+				}
+				$total_style = 0;
+				foreach ($count_style_post as $key => $value) {
+					$total_style += $value['chateau'];
+				}
+
+				?>
+				<div class="filter-button">
+					<p class="left">Styles</p>
+					<p class="right"><?php print($total_style); ?></p>
+					<div class="clear"></div>
+				</div>
+				<div id="myDropdown" class="dropdown-content">
+					<?php foreach ($count_style_post as $key => $value) {
+						if($value['chateau'] != 0){
+							?>
+							<div class="filter" data-filter=".category-<?php print($key);?>">
+								<p class="left"><?php print($key); ?></p>
+								<p class="right"><?php print($value['chateau']); ?></p>
+								<div class="clear"></div>
+							</div>
+							<div class="line"></div>
+							<?php
+						}
+					} 
+					?>
+				</div>
+
+
+
+
+
+
+
+
+
+
+				<?php
+				$terms = get_terms('epoque', array('hide_empty' => false));
+				$count_epoque_post = [];
+				if($terms){
+					foreach ($terms as $key => $value) {
+						$args = array(
+							'post_type' => 'chateaux',
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'epoque',
+									'field'    => 'slug',
+									'terms'    => $value->slug
+									)
+								)
+							);
+						$chateau_query = new WP_Query($args);
+						$count_epoque_post[$value->slug] = array(
+							'chateau'=>$chateau_query->post_count
+							);
+					}
+				}
+				$total_epoque = 0;
+				foreach ($count_epoque_post as $key => $value) {
+					$total_epoque += $value['chateau'];
+				}
+				?>
+				<div class="filter-button">
+					<p class="left">Époque</p>
+					<p class="right"><?php print($total_epoque); ?></p>
+					<div class="clear"></div>
+				</div>
+				<div id="myDropdown" class="dropdown-content">
+					<?php 
+					foreach ($count_epoque_post as $key => $value) {
+						if($value['chateau'] != 0){
+							?><div class="filter" data-filter=".category-<?php print($key);?>">
+							<p class="left"><?php print($key); ?></p>
+							<p class="right"><?php print($value['chateau']);?></p>
+							<div class="clear"></div>
+						</div>
+						<div class="line"></div>
+						<?php
+					}
+				}
+				?>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="content">
+		<div id="Container">
+			<?php 
+			$args= array(
+				'post_type' =>'chateaux',
+				'orderby'=>'asc'
+				);
+			$the_query = new WP_Query( $args );
+			if ($the_query->have_posts() ) : 
+				while ($the_query->have_posts() ) : $the_query->the_post(); 
+			$terms_region = wp_get_post_terms($post->ID, 'regions', array("fields" => "all"));
+			$terms_style = wp_get_post_terms($post->ID, 'style', array("fields" => "all"));
+			$terms_epoque = wp_get_post_terms($post->ID, 'epoque', array("fields" => "all"));
+			?>
+			<div class="mix category-<?php print($terms_region[0]->slug);?> category-<?php print($terms_style[0]->slug);?> category-<?php print($terms_epoque[0]->slug);?>"  style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg');">
+
+				<div class="overlay"></div>
+				<div class="card-container">
+					<div class="main">
+						<p><?php the_title(); ?></p>
+					</div>
+					<div class="hover">
+						<span class="location">
+							<svg fill="#f2d374" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+								<path d="M0 0h24v24H0z" fill="none"/></svg>
+								<?php $commune = get_post_custom_values('commune'); ?>
+								<p><?php print($commune[0]); ?>
+									<?php if(isset($terms_region[0])) {
+										print(" - " . $terms_region[0]->slug);
+									} ?>
+
+								</span>
+
+								<div class="cta-discover">
+									<a href="<?= the_permalink(); ?>">Découvrir</a>
+								</div>
+
+								<div class="fav-container">
+									<a href="">
+										<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="28" width="28">
+											<title>add-favorite</title>
+											<path fill="none" class="filler" d="M16.5,3A6,6,0,0,0,12,5.09,6,6,0,0,0,7.5,3,5.45,5.45,0,0,0,2,8.5C2,12.28,5.4,15.36,10.55,20L12,21.35,13.45,20C18.6,15.36,22,12.28,22,8.5A5.45,5.45,0,0,0,16.5,3Z"/>
+											<path fill="#f2d374" d="M16.5,3A6,6,0,0,0,12,5.09,6,6,0,0,0,7.5,3,5.45,5.45,0,0,0,2,8.5C2,12.28,5.4,15.36,10.55,20L12,21.35,13.45,20C18.6,15.36,22,12.28,22,8.5A5.45,5.45,0,0,0,16.5,3ZM12.1,18.55l-0.1.1-0.1-.1C7.14,14.24,4,11.39,4,8.5A3.42,3.42,0,0,1,7.5,5a3.91,3.91,0,0,1,3.57,2.36h1.87A3.88,3.88,0,0,1,16.5,5,3.42,3.42,0,0,1,20,8.5C20,11.39,16.86,14.24,12.1,18.55Z"/>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php endwhile;endif; ?>
+				<div class="pager-list">
+					<!-- Pagination buttons will be generated here -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="clear"></div>
+<!-- /Result -->
+
+<!-- Article -->
+<section id="castle-region" class="banner-bottom" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg');">
+	<div class="clear"></div>
+	<div class="overlay"></div>
+	<div class="content">
+		<h2>Comment préparer sa visite ?</h2>
+		<div class="cta-discover">
+			<a href="">Lire</a>
+		</div>
+	</div>
+</section>
+<!-- /Article -->
+
+<!-- Région à la une -->
+<section class="castle-proximity region-map">
+	<div class="left" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map.png');">
+		<div class="overlay"></div>
+		<div class="header-cards">
+			<span>
+				<h2>Régions à la une</h2>
+				<div class="cta">
+					<a href="">Tout voir</a>
+				</div>
+			</span>
+		</div>
+		<?php for($i = 1; $i <= 3; $i++): ?>
+			<div class="locations location-<?= $i ?>">
+				<svg fill="#edcd89" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+					<path d="M0 0h24v24H0z" fill="none"/>
+				</svg>
+			</div>
+		<?php endfor; ?>
+	</div><div class="right location-description location-1-description active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
+	<h3>Île-de-France</h3>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
+	<ul>
+		<li>30 châteaux</li>
+		<li>21 monuments</li>
+		<li>27 musées</li>
+		<li>4 événements</li>
+	</ul>
+	<div class="cta-discover">
+		<a href="#">Découvrir</a>
+	</div>	
+</div><div class="right location-description location-2-description" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
+<h3>Région 2</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
+<ul>
+	<li>30 châteaux</li>
+	<li>21 monuments</li>
+	<li>27 musées</li>
+	<li>4 événements</li>
+</ul>
+<div class="cta-discover">
+	<a href="#">Découvrir</a>
+</div>	
+</div><div class="right location-description location-3-description" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
+<h3>Région 3</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
+<ul>
+	<li>30 châteaux</li>
+	<li>21 monuments</li>
+	<li>27 musées</li>
+	<li>4 événements</li>
+</ul>
+<div class="cta-discover">
+	<a href="#">Découvrir</a>
+</div>	
+</div>
+</section>
+<!-- /Région à la une -->
+</main>
+
+<?php
+get_footer();

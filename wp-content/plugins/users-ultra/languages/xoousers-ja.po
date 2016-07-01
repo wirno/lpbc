@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Users Ultra Pro\n"
-"POT-Creation-Date: 2016-04-05 16:25-0300\n"
-"PO-Revision-Date: 2016-04-05 16:25-0300\n"
+"POT-Creation-Date: 2016-06-16 15:54-0300\n"
+"PO-Revision-Date: 2016-06-16 15:54-0300\n"
 "Last-Translator: Evange <mochizuki@evange.co.jp>\n"
 "Language-Team: evange <info@evange.co.jp>\n"
 "Language: ja\n"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Manage Photo Categories"
 msgstr "写真カテゴリの管理"
 
-#: ../addons/photocategories/admin/admin.php:89 ../admin/tabs/membership.php:65
+#: ../addons/photocategories/admin/admin.php:89 ../admin/tabs/membership.php:67
 #: ../xooclasses/xoo.userultra.payment.paypal.php:560
 msgid "Name:"
 msgstr "名前："
@@ -174,7 +174,7 @@ msgstr "写真カテゴリー"
 
 #: ../addons/photocategories/admin/panels/manage.php:12
 #: ../admin/tabs/fields.php:262 ../admin/tabs/fields.php:660
-#: ../admin/tabs/membership.php:55 ../admin/tabs/orders.php:44
+#: ../admin/tabs/membership.php:57 ../admin/tabs/orders.php:44
 #, fuzzy
 msgid "Sucess "
 msgstr "成功"
@@ -188,7 +188,7 @@ msgid "Name: "
 msgstr "名前："
 
 #: ../addons/photocategories/admin/panels/manage.php:24
-#: ../admin/tabs/membership.php:151
+#: ../admin/tabs/membership.php:153
 #: ../xooclasses/xoo.userultra.payment.paypal.php:708
 #: ../xooclasses/xoo.userultra.user.php:800
 #: ../xooclasses/xoo.userultra.user.php:867
@@ -202,7 +202,7 @@ msgid "#"
 msgstr "#"
 
 #: ../addons/photocategories/admin/panels/manage.php:44
-#: ../templates/basic/dashboard.php:472 ../templates/basic/dashboard.php:892
+#: ../templates/basic/dashboard.php:475 ../templates/basic/dashboard.php:895
 #: ../xooclasses/xoo.userultra.payment.paypal.php:738
 #: ../xooclasses/xoo.userultra.photos.php:1611
 #: ../xooclasses/xoo.userultra.photos.php:1752
@@ -211,7 +211,7 @@ msgid "Name"
 msgstr "名前"
 
 #: ../addons/photocategories/admin/panels/manage.php:49
-#: ../xooclasses/xoo.userultra.publisher.php:512
+#: ../xooclasses/xoo.userultra.publisher.php:514
 msgid "Actions"
 msgstr "アクション"
 
@@ -220,7 +220,7 @@ msgstr "アクション"
 #: ../xooclasses/xoo.userultra.mymessage.php:1042
 #: ../xooclasses/xoo.userultra.mymessage.php:1094
 #: ../xooclasses/xoo.userultra.payment.paypal.php:768
-#: ../xooclasses/xoo.userultra.publisher.php:551
+#: ../xooclasses/xoo.userultra.publisher.php:555
 #: ../xooclasses/xoo.userultra.user.php:933
 msgid "Delete"
 msgstr "削除"
@@ -228,7 +228,7 @@ msgstr "削除"
 #: ../addons/photocategories/admin/panels/manage.php:71
 #: ../admin/tabs/fields.php:348
 #: ../xooclasses/xoo.userultra.payment.paypal.php:768
-#: ../xooclasses/xoo.userultra.publisher.php:532
+#: ../xooclasses/xoo.userultra.publisher.php:536
 msgid "Edit"
 msgstr "編集"
 
@@ -254,7 +254,7 @@ msgstr ""
 "あなたがここにいくつかのカスタムCSSスタイルのコーディングを書くことができます"
 
 #: ../admin/tabs/customizer.php:40 ../admin/tabs/gateway.php:86
-#: ../admin/tabs/mail.php:225 ../admin/tabs/membership.php:40
+#: ../admin/tabs/mail.php:225 ../admin/tabs/membership.php:42
 #: ../admin/tabs/permalinks.php:150 ../admin/tabs/settings.php:1301
 msgid "Save Changes"
 msgstr "変更保存"
@@ -299,7 +299,7 @@ msgstr "新しい項目を追加するにはここをクリックしてくださ
 msgid "Click here to restore default fields"
 msgstr "デフォルトのフィールドを復元するには、ここをクリックしてください"
 
-#: ../admin/tabs/fields.php:41 ../admin/tabs/membership.php:107
+#: ../admin/tabs/fields.php:41 ../admin/tabs/membership.php:109
 #: ../xooclasses/xoo.userultra.payment.paypal.php:575
 #: ../xooclasses/xoo.userultra.payment.paypal.php:742
 #: ../xooclasses/xoo.userultra.photos.php:1879
@@ -395,7 +395,7 @@ msgstr "このフィールドはソーシャルである"
 #: ../admin/tabs/fields.php:490 ../admin/tabs/fields.php:502
 #: ../admin/tabs/fields.php:522 ../admin/tabs/fields.php:535
 #: ../admin/tabs/fields.php:551 ../admin/tabs/fields.php:587
-#: ../admin/tabs/gateway.php:32 ../admin/tabs/membership.php:117
+#: ../admin/tabs/gateway.php:32 ../admin/tabs/membership.php:119
 #: ../admin/tabs/settings.php:61 ../admin/tabs/settings.php:76
 #: ../admin/tabs/settings.php:90 ../admin/tabs/settings.php:103
 #: ../admin/tabs/settings.php:116 ../admin/tabs/settings.php:129
@@ -417,7 +417,7 @@ msgstr "No"
 #: ../admin/tabs/fields.php:487 ../admin/tabs/fields.php:505
 #: ../admin/tabs/fields.php:519 ../admin/tabs/fields.php:538
 #: ../admin/tabs/fields.php:554 ../admin/tabs/fields.php:590
-#: ../admin/tabs/gateway.php:33 ../admin/tabs/membership.php:116
+#: ../admin/tabs/gateway.php:33 ../admin/tabs/membership.php:118
 #: ../admin/tabs/settings.php:62 ../admin/tabs/settings.php:77
 #: ../admin/tabs/settings.php:91 ../admin/tabs/settings.php:104
 #: ../admin/tabs/settings.php:117 ../admin/tabs/settings.php:130
@@ -532,8 +532,8 @@ msgid "Submit New Field"
 msgstr "新しいフィールドを提出します。"
 
 #: ../admin/tabs/fields.php:265 ../admin/tabs/fields.php:666
-#: ../admin/tabs/membership.php:150 ../templates/basic/dashboard.php:483
-#: ../templates/basic/dashboard.php:918
+#: ../admin/tabs/membership.php:152 ../templates/basic/dashboard.php:486
+#: ../templates/basic/dashboard.php:921
 #: ../xooclasses/xoo.userultra.payment.paypal.php:707
 msgid "Cancel"
 msgstr "キャンセル"
@@ -719,7 +719,7 @@ msgstr ""
 "これは、商品の販売のために使用されていません。あなたがテストのためにこのメー"
 "ルを使用することができます。"
 
-#: ../admin/tabs/gateway.php:59 ../admin/tabs/membership.php:22
+#: ../admin/tabs/gateway.php:59 ../admin/tabs/membership.php:24
 msgid "Currency"
 msgstr "現在"
 
@@ -797,7 +797,7 @@ msgstr "登録"
 msgid "Login Form"
 msgstr "ログイン"
 
-#: ../admin/tabs/help.php:30 ../templates/basic/dashboard.php:744
+#: ../admin/tabs/help.php:30 ../templates/basic/dashboard.php:747
 #: ../xooclasses/xoo.userultra.class.php:1035
 #: ../xooclasses/xoo.userultra.user.php:2222
 #: ../xooclasses/xoo.userultra.user.php:2226
@@ -1148,7 +1148,7 @@ msgid "This message is sent to the users when a friend request is sent"
 msgstr ""
 "フレンドリクエストが送信されたときに、このメッセージがユーザーに送信される"
 
-#: ../admin/tabs/mail.php:189 ../xooclasses/xoo.userultra.class.php:1684
+#: ../admin/tabs/mail.php:189 ../xooclasses/xoo.userultra.class.php:1687
 msgid "Password Reset"
 msgstr "パスワードリセット"
 
@@ -1193,7 +1193,7 @@ msgstr "ソーシャルコネクト統計"
 msgid "Subscription Stats"
 msgstr "定期購読の統計"
 
-#: ../admin/tabs/main.php:94 ../xooclasses/xoo.userultra.class.php:1557
+#: ../admin/tabs/main.php:94 ../xooclasses/xoo.userultra.class.php:1560
 msgid "Today"
 msgstr "本日"
 
@@ -1221,10 +1221,10 @@ msgstr "最後の5つの取引"
 #: ../xooclasses/xoo.userultra.mymessage.php:1053
 #: ../xooclasses/xoo.userultra.mymessage.php:1114
 #: ../xooclasses/xoo.userultra.order.php:374
-#: ../xooclasses/xoo.userultra.publisher.php:510
+#: ../xooclasses/xoo.userultra.publisher.php:512
 #: ../xooclasses/xoo.userultra.socials.php:512
 #: ../xooclasses/xoo.userultra.socials.php:618
-#: ../xooclasses/xoo.userultra.woocommerce.php:349
+#: ../xooclasses/xoo.userultra.woocommerce.php:341
 msgid "Date"
 msgstr "日付"
 
@@ -1238,8 +1238,8 @@ msgstr "トランザクションID"
 
 #: ../admin/tabs/main.php:141 ../admin/tabs/orders.php:152
 #: ../xooclasses/xoo.userultra.order.php:376
-#: ../xooclasses/xoo.userultra.publisher.php:511
-#: ../xooclasses/xoo.userultra.woocommerce.php:351
+#: ../xooclasses/xoo.userultra.publisher.php:513
+#: ../xooclasses/xoo.userultra.woocommerce.php:343
 msgid "Status"
 msgstr "ステータス"
 
@@ -1274,8 +1274,8 @@ msgid "There are no pending activation users."
 msgstr "保留中のアクティベーションユーザーはありません。"
 
 #: ../admin/tabs/main.php:249 ../admin/tabs/main.php:256
-#: ../admin/tabs/main.php:262 ../admin/tabs/membership.php:157
-#: ../templates/basic/dashboard.php:262 ../templates/basic/dashboard.php:270
+#: ../admin/tabs/main.php:262 ../admin/tabs/membership.php:159
+#: ../templates/basic/dashboard.php:259 ../templates/basic/dashboard.php:267
 msgid "loading ..."
 msgstr "読み込み中･･･"
 
@@ -1288,11 +1288,11 @@ msgstr "登録統計"
 msgid "Sign up Options "
 msgstr "登録オプション"
 
-#: ../admin/tabs/membership.php:12
+#: ../admin/tabs/membership.php:14
 msgid "Paid Membership Settings"
 msgstr "有料会員の設定"
 
-#: ../admin/tabs/membership.php:14 ../admin/tabs/settings.php:10
+#: ../admin/tabs/membership.php:16 ../admin/tabs/settings.php:10
 #: ../admin/tabs/settings.php:200 ../admin/tabs/settings.php:230
 #: ../admin/tabs/settings.php:301 ../admin/tabs/settings.php:389
 #: ../admin/tabs/settings.php:459 ../admin/tabs/settings.php:493
@@ -1301,127 +1301,127 @@ msgstr "有料会員の設定"
 msgid "."
 msgstr "."
 
-#: ../admin/tabs/membership.php:23 ../admin/tabs/membership.php:24
+#: ../admin/tabs/membership.php:25 ../admin/tabs/membership.php:26
 msgid "The default symbol for PayPal payments is USD"
 msgstr "PayPal支払いのデフォルトの記号はUSDです"
 
-#: ../admin/tabs/membership.php:30
+#: ../admin/tabs/membership.php:32
 msgid "Currency Symbol"
 msgstr "通貨記号"
 
-#: ../admin/tabs/membership.php:31 ../admin/tabs/membership.php:32
+#: ../admin/tabs/membership.php:33 ../admin/tabs/membership.php:34
 msgid "Input the currency symbol: Example: $"
 msgstr "入力通貨記号：例：$"
 
-#: ../admin/tabs/membership.php:49
+#: ../admin/tabs/membership.php:51
 msgid "Membership Packages"
 msgstr "メンバーシップパッケージ"
 
-#: ../admin/tabs/membership.php:52
+#: ../admin/tabs/membership.php:54
 msgid "Add New Plan"
 msgstr "新規プラン追加"
 
-#: ../admin/tabs/membership.php:59
+#: ../admin/tabs/membership.php:61
 #, fuzzy
 msgid "Add New Membership Package"
 msgstr "メンバーシップパッケージ"
 
-#: ../admin/tabs/membership.php:69
-#: ../xooclasses/xoo.userultra.publisher.php:227
-#: ../xooclasses/xoo.userultra.publisher.php:402
+#: ../admin/tabs/membership.php:71
+#: ../xooclasses/xoo.userultra.publisher.php:229
+#: ../xooclasses/xoo.userultra.publisher.php:404
 msgid "Description:"
 msgstr "概要："
 
-#: ../admin/tabs/membership.php:73
+#: ../admin/tabs/membership.php:75
 #, fuzzy
 msgid "Price:"
 msgstr "価格："
 
-#: ../admin/tabs/membership.php:77
+#: ../admin/tabs/membership.php:79
 msgid "Every:"
 msgstr "すべて："
 
-#: ../admin/tabs/membership.php:97
+#: ../admin/tabs/membership.php:99
 msgid "Billing Period:"
 msgstr "請求期間："
 
-#: ../admin/tabs/membership.php:100
+#: ../admin/tabs/membership.php:102
 #: ../xooclasses/xoo.userultra.payment.paypal.php:632
 #, fuzzy
 msgid "Months"
 msgstr "月間："
 
-#: ../admin/tabs/membership.php:101
+#: ../admin/tabs/membership.php:103
 #: ../xooclasses/xoo.userultra.payment.paypal.php:633
 #, fuzzy
 msgid "Weeks"
 msgstr "週間："
 
-#: ../admin/tabs/membership.php:102
+#: ../admin/tabs/membership.php:104
 #: ../xooclasses/xoo.userultra.payment.paypal.php:634
 #, fuzzy
 msgid "Days"
 msgstr "日間："
 
-#: ../admin/tabs/membership.php:103
+#: ../admin/tabs/membership.php:105
 #: ../xooclasses/xoo.userultra.payment.paypal.php:635
 #, fuzzy
 msgid "Years"
 msgstr "年間："
 
-#: ../admin/tabs/membership.php:109
+#: ../admin/tabs/membership.php:111
 #: ../xooclasses/xoo.userultra.payment.paypal.php:586
 msgid "Recurring"
 msgstr "定期的"
 
-#: ../admin/tabs/membership.php:110
+#: ../admin/tabs/membership.php:112
 #: ../xooclasses/xoo.userultra.payment.paypal.php:587
 msgid "One-Time"
 msgstr "ワンタイム"
 
-#: ../admin/tabs/membership.php:114
+#: ../admin/tabs/membership.php:116
 #: ../xooclasses/xoo.userultra.payment.paypal.php:641
 msgid "Requires Admin Moderation:"
 msgstr "管理モデレーションが必須です"
 
-#: ../admin/tabs/membership.php:122
+#: ../admin/tabs/membership.php:124
 #: ../xooclasses/xoo.userultra.payment.paypal.php:678
 msgid "Pricing Table Customization"
 msgstr "価格表のカスタマイズ"
 
-#: ../admin/tabs/membership.php:125
+#: ../admin/tabs/membership.php:127
 #: ../xooclasses/xoo.userultra.payment.paypal.php:681
 msgid "Name/Price Font Color"
 msgstr "名前/価格フォントの色"
 
-#: ../admin/tabs/membership.php:130
+#: ../admin/tabs/membership.php:132
 #: ../xooclasses/xoo.userultra.payment.paypal.php:686
 msgid "Name/Price Background Color"
 msgstr "名前/価格の背景色"
 
-#: ../admin/tabs/membership.php:136
+#: ../admin/tabs/membership.php:138
 #: ../xooclasses/xoo.userultra.payment.paypal.php:692
 msgid "Sign Up Button Text Color"
 msgstr "会員登録ボタンのテキストの色"
 
-#: ../admin/tabs/membership.php:142
+#: ../admin/tabs/membership.php:144
 #: ../xooclasses/xoo.userultra.payment.paypal.php:698
 msgid "Sign Up Button Background Color"
 msgstr "会員登録ボタンの背景色"
 
-#: ../admin/tabs/membership.php:170
+#: ../admin/tabs/membership.php:172
 msgid "Please, input a name "
 msgstr "名前を入力してください"
 
-#: ../admin/tabs/membership.php:171
+#: ../admin/tabs/membership.php:173
 msgid "Please, input a description "
 msgstr "説明を入力してください"
 
-#: ../admin/tabs/membership.php:172
+#: ../admin/tabs/membership.php:174
 msgid "Please, input a price "
 msgstr "価格を入力してください"
 
-#: ../admin/tabs/membership.php:173
+#: ../admin/tabs/membership.php:175
 msgid "Are you totally sure that you want to delete this package? "
 msgstr "あなたは、このパッケージを完全に削除することを確認していますか？"
 
@@ -3445,35 +3445,35 @@ msgstr ""
 msgid "Update Profile Image"
 msgstr "ユーザーウルトラプロフィールページ"
 
-#: ../templates/basic/dashboard.php:192
+#: ../templates/basic/dashboard.php:189
 #, fuzzy
 msgid "Hello"
 msgstr "ようこそ"
 
-#: ../templates/basic/dashboard.php:192
+#: ../templates/basic/dashboard.php:189
 msgid "Welcome to your dashboard"
 msgstr "あなたのダッシュボードへようこそ"
 
-#: ../templates/basic/dashboard.php:194
+#: ../templates/basic/dashboard.php:191
 msgid "Account Status"
 msgstr "アカウントのステータス"
 
-#: ../templates/basic/dashboard.php:202
+#: ../templates/basic/dashboard.php:199
 msgid "My Latest Messages"
 msgstr "私の最新のメッセージ"
 
-#: ../templates/basic/dashboard.php:223
+#: ../templates/basic/dashboard.php:220
 #, fuzzy
 msgid "My Latest Photos:"
 msgstr "マイ新着記事"
 
-#: ../templates/basic/dashboard.php:254
+#: ../templates/basic/dashboard.php:251
 #: ../xooclasses/xoo.userultra.user.php:2332
 #: ../xooclasses/xoo.userultra.user.php:2336
 msgid "My Friends"
 msgstr "マイフレンド"
 
-#: ../templates/basic/dashboard.php:258
+#: ../templates/basic/dashboard.php:255
 msgid ""
 "Here you can manage your friends. Your friends will be able to see private/"
 "restricted content"
@@ -3481,56 +3481,56 @@ msgstr ""
 "ここではフレンドを管理することができます。あなたのフレンドはプライベート/制限"
 "されたコンテンツを見ることができます"
 
-#: ../templates/basic/dashboard.php:337
+#: ../templates/basic/dashboard.php:336
 #: ../xooclasses/xoo.userultra.user.php:2352
 #: ../xooclasses/xoo.userultra.user.php:2356
 msgid "My Posts"
 msgstr "マイフォト"
 
-#: ../templates/basic/dashboard.php:341
+#: ../templates/basic/dashboard.php:340
 msgid "Here you can manage your posts. "
 msgstr "ここであなたの投稿を管理できます。"
 
-#: ../templates/basic/dashboard.php:355
+#: ../templates/basic/dashboard.php:354
 #, fuzzy
 msgid "Are you totally sure that you want to delete this "
 msgstr "あなたはこのフォームを完全に削除してもよろしいですか？"
 
-#: ../templates/basic/dashboard.php:387
+#: ../templates/basic/dashboard.php:390
 #: ../xooclasses/xoo.userultra.user.php:2263
 #: ../xooclasses/xoo.userultra.user.php:2267
 msgid "My Orders"
 msgstr "マイオーダー"
 
-#: ../templates/basic/dashboard.php:391
+#: ../templates/basic/dashboard.php:394
 msgid "Here you can check your orders. "
 msgstr "ここで注文を確認することができます。"
 
-#: ../templates/basic/dashboard.php:422
+#: ../templates/basic/dashboard.php:425
 #: ../xooclasses/xoo.userultra.user.php:2250
 #: ../xooclasses/xoo.userultra.user.php:2254
 msgid "My Purchases"
 msgstr "購入履歴"
 
-#: ../templates/basic/dashboard.php:426
+#: ../templates/basic/dashboard.php:429
 #, fuzzy
 msgid "Here you can track your purchases. "
 msgstr "ここであなたの購入履歴を確認することができます。"
 
-#: ../templates/basic/dashboard.php:460
+#: ../templates/basic/dashboard.php:463
 #: ../xooclasses/xoo.userultra.user.php:269
 msgid "My Galleries"
 msgstr "マイギャラリー"
 
-#: ../templates/basic/dashboard.php:465
+#: ../templates/basic/dashboard.php:468
 msgid "Here you can manage your galleries and photos."
 msgstr "ここでは、あなたのギャラリーや写真を管理することができます。"
 
-#: ../templates/basic/dashboard.php:467
+#: ../templates/basic/dashboard.php:470
 msgid "Add Gallery"
 msgstr "ギャラリーを追加"
 
-#: ../templates/basic/dashboard.php:477
+#: ../templates/basic/dashboard.php:480
 #: ../xooclasses/xoo.userultra.payment.paypal.php:564
 #: ../xooclasses/xoo.userultra.payment.paypal.php:739
 #: ../xooclasses/xoo.userultra.photos.php:1615
@@ -3538,74 +3538,74 @@ msgstr "ギャラリーを追加"
 msgid "Description"
 msgstr "説明"
 
-#: ../templates/basic/dashboard.php:484 ../templates/basic/dashboard.php:919
-#: ../xooclasses/xoo.userultra.publisher.php:420
+#: ../templates/basic/dashboard.php:487 ../templates/basic/dashboard.php:922
+#: ../xooclasses/xoo.userultra.publisher.php:422
 msgid "Submit"
 msgstr "送信"
 
-#: ../templates/basic/dashboard.php:527
+#: ../templates/basic/dashboard.php:530
 msgid "Delete this gallery?"
 msgstr "このギャラリーを削除しますか？"
 
-#: ../templates/basic/dashboard.php:551
+#: ../templates/basic/dashboard.php:554
 #: ../xooclasses/xoo.userultra.user.php:262
 msgid "My Photos"
 msgstr "マイ写真"
 
-#: ../templates/basic/dashboard.php:556
+#: ../templates/basic/dashboard.php:559
 msgid "Here you can manage your photos."
 msgstr "ここであなたの写真を管理することができます。"
 
-#: ../templates/basic/dashboard.php:558
+#: ../templates/basic/dashboard.php:561
 msgid "Upload Files"
 msgstr "ファイルアップロード"
 
-#: ../templates/basic/dashboard.php:568
+#: ../templates/basic/dashboard.php:571
 msgid "loading photos ..."
 msgstr "写真読み込み中･･･"
 
-#: ../templates/basic/dashboard.php:621
+#: ../templates/basic/dashboard.php:624
 msgid "My Profile"
 msgstr "マイプロフィール"
 
-#: ../templates/basic/dashboard.php:651
+#: ../templates/basic/dashboard.php:654
 msgid "Received Messages"
 msgstr "受信したメッセージ"
 
-#: ../templates/basic/dashboard.php:700
+#: ../templates/basic/dashboard.php:703
 msgid "Sent Messages"
 msgstr "送信済みメッセージ"
 
-#: ../templates/basic/dashboard.php:760
+#: ../templates/basic/dashboard.php:763
 msgid "Account ID: "
 msgstr "アカウントID: "
 
-#: ../templates/basic/dashboard.php:760
+#: ../templates/basic/dashboard.php:763
 msgid "Registered Date: "
 msgstr "登録日："
 
-#: ../templates/basic/dashboard.php:760
+#: ../templates/basic/dashboard.php:763
 msgid "Account Type: "
 msgstr "アカウントの種類："
 
-#: ../templates/basic/dashboard.php:773
+#: ../templates/basic/dashboard.php:776
 #, fuzzy
 msgid "Close Account"
 msgstr "アカウントを削除"
 
-#: ../templates/basic/dashboard.php:778
+#: ../templates/basic/dashboard.php:781
 msgid "Remove Account"
 msgstr "アカウントを削除"
 
-#: ../templates/basic/dashboard.php:782
+#: ../templates/basic/dashboard.php:785
 msgid "Here you can remove your account."
 msgstr "ここであなたのアカウントを削除することができます。"
 
-#: ../templates/basic/dashboard.php:785
+#: ../templates/basic/dashboard.php:788
 msgid "YES, CLOSE MY ACCOUNT"
 msgstr "はい、私のアカウントを閉鎖"
 
-#: ../templates/basic/dashboard.php:798 ../templates/basic/dashboard.php:858
+#: ../templates/basic/dashboard.php:801 ../templates/basic/dashboard.php:861
 msgid ""
 "Are you totally sure that you want to close your account. This action cannot "
 "be reverted?"
@@ -3613,79 +3613,79 @@ msgstr ""
 "あなたは、あなたのアカウントを完全に閉鎖することを理解しています。この操作は"
 "元に戻すことはできません？"
 
-#: ../templates/basic/dashboard.php:817
+#: ../templates/basic/dashboard.php:820
 #: ../xooclasses/xoo.userultra.admin.php:49
 #: ../xooclasses/xoo.userultra.user.php:2236
 #: ../xooclasses/xoo.userultra.user.php:2240
 msgid "Settings"
 msgstr "設定"
 
-#: ../templates/basic/dashboard.php:822
+#: ../templates/basic/dashboard.php:825
 msgid "Update Password"
 msgstr "パスワード更新"
 
-#: ../templates/basic/dashboard.php:826
+#: ../templates/basic/dashboard.php:829
 msgid "Type your New Password"
 msgstr "あなたの新しいパスワードを入力"
 
-#: ../templates/basic/dashboard.php:829
+#: ../templates/basic/dashboard.php:832
 msgid "Re-type your New Password"
 msgstr "新しいパスワードを再入力"
 
-#: ../templates/basic/dashboard.php:832
+#: ../templates/basic/dashboard.php:835
 msgid "CLICK HERE TO RESET PASSWORD"
 msgstr "パスワードをリセットするにはこちらをクリック"
 
-#: ../templates/basic/dashboard.php:837
+#: ../templates/basic/dashboard.php:840
 msgid "Update Email"
 msgstr "更新メール"
 
-#: ../templates/basic/dashboard.php:841
+#: ../templates/basic/dashboard.php:844
 msgid "Type your New Email"
 msgstr "新しいメールを入力"
 
-#: ../templates/basic/dashboard.php:844
+#: ../templates/basic/dashboard.php:847
 msgid "CLICK HERE TO UPDATE YOUR EMAIL"
 msgstr "あなたのメールアドレスを更新するにはここをクリックしてください"
 
-#: ../templates/basic/dashboard.php:879 ../templates/basic/profile.php:183
+#: ../templates/basic/dashboard.php:882 ../templates/basic/profile.php:183
 #: ../xooclasses/xoo.userultra.user.php:2315
 #: ../xooclasses/xoo.userultra.user.php:2319
 msgid "My Videos"
 msgstr "マイビデオ"
 
-#: ../templates/basic/dashboard.php:886
+#: ../templates/basic/dashboard.php:889
 msgid "Here you can manage your videos."
 msgstr "ここでは、あなたのビデオの投稿を管理することができます。"
 
-#: ../templates/basic/dashboard.php:888
+#: ../templates/basic/dashboard.php:891
 msgid "Add Video"
 msgstr "ビデオ追加"
 
-#: ../templates/basic/dashboard.php:901
+#: ../templates/basic/dashboard.php:904
 #: ../xooclasses/xoo.userultra.photos.php:1876
 #, fuzzy
 msgid "Video ID"
 msgstr "ビデオID / URL"
 
-#: ../templates/basic/dashboard.php:909
+#: ../templates/basic/dashboard.php:912
 msgid "Video Type"
 msgstr "ビデオタイプ"
 
-#: ../templates/basic/dashboard.php:930
+#: ../templates/basic/dashboard.php:933
 #, fuzzy
 msgid "please wait, loading videos ..."
 msgstr "読み込みをお待ちください･･･"
 
-#: ../templates/basic/dashboard.php:959
+#: ../templates/basic/dashboard.php:962
 msgid "Delete this video?"
 msgstr "このビデオを削除しますか？"
 
-#: ../templates/basic/dashboard.php:960
+#: ../templates/basic/dashboard.php:963
 msgid "Please input a name"
 msgstr "名前を入力してください"
 
-#: ../templates/basic/dashboard.php:961
+#: ../templates/basic/dashboard.php:964
 msgid "Please input video ID"
 msgstr "ビデオIDを入力してください"
 
@@ -3833,7 +3833,7 @@ msgid "Subscribe to receive our periodic email updates"
 msgstr "私たちの定期的なメールの更新を受信するために定期購読"
 
 #: ../xooclasses/xoo.userultra.admin.php:391
-#: ../xooclasses/xoo.userultra.class.php:2208
+#: ../xooclasses/xoo.userultra.class.php:2211
 msgid "User registration is currently not allowed."
 msgstr "ユーザー登録は現在許可されていません。"
 
@@ -4157,7 +4157,7 @@ msgid "View Profile"
 msgstr "プロフィール表示"
 
 #: ../xooclasses/xoo.userultra.class.php:956
-#: ../xooclasses/xoo.userultra.class.php:1789
+#: ../xooclasses/xoo.userultra.class.php:1792
 msgid "Login"
 msgstr "ログイン"
 
@@ -4226,7 +4226,7 @@ msgid "A password will be e-mailed to you."
 msgstr "パスワードはあなたのメールアドレスに送信されます。"
 
 #: ../xooclasses/xoo.userultra.class.php:1180
-#: ../xooclasses/xoo.userultra.class.php:2021
+#: ../xooclasses/xoo.userultra.class.php:2024
 msgid "Username or Email"
 msgstr "ユーザー名 か メールアドレス"
 
@@ -4295,7 +4295,7 @@ msgid "Connect via Google+"
 msgstr "Google+経由で接続"
 
 #: ../xooclasses/xoo.userultra.class.php:1398
-#: ../xooclasses/xoo.userultra.class.php:2239
+#: ../xooclasses/xoo.userultra.class.php:2242
 msgid "Account Info"
 msgstr "アカウント情報"
 
@@ -4303,15 +4303,15 @@ msgstr "アカウント情報"
 msgid "New Password"
 msgstr "新しいパスワード"
 
-#: ../xooclasses/xoo.userultra.class.php:1554
+#: ../xooclasses/xoo.userultra.class.php:1557
 msgid "Done"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1555
+#: ../xooclasses/xoo.userultra.class.php:1558
 msgid "Prev"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1556
+#: ../xooclasses/xoo.userultra.class.php:1559
 #: ../xooclasses/xoo.userultra.photos.php:635
 #: ../xooclasses/xoo.userultra.user.php:4376
 #: ../xooclasses/xoo.userultra.user.php:5219
@@ -4319,227 +4319,227 @@ msgstr ""
 msgid "Next"
 msgstr "次"
 
-#: ../xooclasses/xoo.userultra.class.php:1559
+#: ../xooclasses/xoo.userultra.class.php:1562
 msgid "January"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1560
+#: ../xooclasses/xoo.userultra.class.php:1563
 msgid "February"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1561
+#: ../xooclasses/xoo.userultra.class.php:1564
 msgid "March"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1562
+#: ../xooclasses/xoo.userultra.class.php:1565
 msgid "April"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1563
-#: ../xooclasses/xoo.userultra.class.php:1577
+#: ../xooclasses/xoo.userultra.class.php:1566
+#: ../xooclasses/xoo.userultra.class.php:1580
 msgid "May"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1564
+#: ../xooclasses/xoo.userultra.class.php:1567
 msgid "June"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1565
+#: ../xooclasses/xoo.userultra.class.php:1568
 msgid "July"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1566
+#: ../xooclasses/xoo.userultra.class.php:1569
 msgid "August"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1567
+#: ../xooclasses/xoo.userultra.class.php:1570
 msgid "September"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1568
+#: ../xooclasses/xoo.userultra.class.php:1571
 msgid "October"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1569
+#: ../xooclasses/xoo.userultra.class.php:1572
 msgid "November"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1570
+#: ../xooclasses/xoo.userultra.class.php:1573
 msgid "December"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1573
+#: ../xooclasses/xoo.userultra.class.php:1576
 msgid "Jan"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1574
+#: ../xooclasses/xoo.userultra.class.php:1577
 msgid "Feb"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1575
+#: ../xooclasses/xoo.userultra.class.php:1578
 msgid "Mar"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1576
+#: ../xooclasses/xoo.userultra.class.php:1579
 msgid "Apr"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1578
+#: ../xooclasses/xoo.userultra.class.php:1581
 msgid "Jun"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1579
+#: ../xooclasses/xoo.userultra.class.php:1582
 msgid "Jul"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1580
+#: ../xooclasses/xoo.userultra.class.php:1583
 msgid "Aug"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1581
+#: ../xooclasses/xoo.userultra.class.php:1584
 msgid "Sep"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1582
+#: ../xooclasses/xoo.userultra.class.php:1585
 msgid "Oct"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1583
+#: ../xooclasses/xoo.userultra.class.php:1586
 msgid "Nov"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1584
+#: ../xooclasses/xoo.userultra.class.php:1587
 msgid "Dec"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1587
+#: ../xooclasses/xoo.userultra.class.php:1590
 msgid "Sunday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1588
+#: ../xooclasses/xoo.userultra.class.php:1591
 msgid "Monday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1589
+#: ../xooclasses/xoo.userultra.class.php:1592
 msgid "Tuesday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1590
+#: ../xooclasses/xoo.userultra.class.php:1593
 msgid "Wednesday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1591
+#: ../xooclasses/xoo.userultra.class.php:1594
 msgid "Thursday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1592
+#: ../xooclasses/xoo.userultra.class.php:1595
 msgid "Friday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1593
+#: ../xooclasses/xoo.userultra.class.php:1596
 msgid "Saturday"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1596
+#: ../xooclasses/xoo.userultra.class.php:1599
 msgid "Sun"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1597
+#: ../xooclasses/xoo.userultra.class.php:1600
 msgid "Mon"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1598
+#: ../xooclasses/xoo.userultra.class.php:1601
 msgid "Tue"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1599
+#: ../xooclasses/xoo.userultra.class.php:1602
 msgid "Wed"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1600
+#: ../xooclasses/xoo.userultra.class.php:1603
 msgid "Thu"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1601
+#: ../xooclasses/xoo.userultra.class.php:1604
 msgid "Fri"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1602
+#: ../xooclasses/xoo.userultra.class.php:1605
 msgid "Sat"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1605
+#: ../xooclasses/xoo.userultra.class.php:1608
 msgid "Su"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1606
+#: ../xooclasses/xoo.userultra.class.php:1609
 msgid "Mo"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1607
+#: ../xooclasses/xoo.userultra.class.php:1610
 msgid "Tu"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1608
+#: ../xooclasses/xoo.userultra.class.php:1611
 msgid "We"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1609
+#: ../xooclasses/xoo.userultra.class.php:1612
 msgid "Th"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1610
+#: ../xooclasses/xoo.userultra.class.php:1613
 msgid "Fr"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1611
+#: ../xooclasses/xoo.userultra.class.php:1614
 msgid "Sa"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.class.php:1704
+#: ../xooclasses/xoo.userultra.class.php:1707
 msgid "Oops! The link is not correct! "
 msgstr "おっと! リンクが正しくありません！"
 
-#: ../xooclasses/xoo.userultra.class.php:1743
+#: ../xooclasses/xoo.userultra.class.php:1746
 msgid "Type New Password:"
 msgstr "新しいパスワードを入力します："
 
-#: ../xooclasses/xoo.userultra.class.php:1752
+#: ../xooclasses/xoo.userultra.class.php:1755
 msgid "Re-type Password:"
 msgstr "パスワードを再入力してください："
 
-#: ../xooclasses/xoo.userultra.class.php:1761
+#: ../xooclasses/xoo.userultra.class.php:1764
 msgid "Reset Password"
 msgstr "リセットパスワード"
 
-#: ../xooclasses/xoo.userultra.class.php:1858
+#: ../xooclasses/xoo.userultra.class.php:1861
 #, fuzzy
 msgid "Sign in with"
 msgstr "ログイン"
 
-#: ../xooclasses/xoo.userultra.class.php:1860
+#: ../xooclasses/xoo.userultra.class.php:1863
 msgid "Sign in "
 msgstr "ログイン"
 
-#: ../xooclasses/xoo.userultra.class.php:1952
+#: ../xooclasses/xoo.userultra.class.php:1955
 msgid "Forgot Password?"
 msgstr "パスワードを忘れた場合"
 
-#: ../xooclasses/xoo.userultra.class.php:1966
-#: ../xooclasses/xoo.userultra.class.php:1971
-#: ../xooclasses/xoo.userultra.class.php:2743
+#: ../xooclasses/xoo.userultra.class.php:1969
+#: ../xooclasses/xoo.userultra.class.php:1974
+#: ../xooclasses/xoo.userultra.class.php:2746
 msgid "Register"
 msgstr "会員登録"
 
-#: ../xooclasses/xoo.userultra.class.php:1987
+#: ../xooclasses/xoo.userultra.class.php:1990
 msgid "Remember me"
 msgstr "ログインを覚えておく"
 
-#: ../xooclasses/xoo.userultra.class.php:1991
+#: ../xooclasses/xoo.userultra.class.php:1994
 msgid "Log In"
 msgstr "ログイン"
 
-#: ../xooclasses/xoo.userultra.class.php:2012
+#: ../xooclasses/xoo.userultra.class.php:2015
 msgid ""
 " A quick access link will be sent to your email that will let you get in "
 "your account and change your password. "
@@ -4547,56 +4547,56 @@ msgstr ""
 "クイックアクセスリンクは、あなたのアカウントに取得し、あなたのパスワードを変"
 "更できるようになるリンクをあなたのメールに送信します。"
 
-#: ../xooclasses/xoo.userultra.class.php:2032
+#: ../xooclasses/xoo.userultra.class.php:2035
 msgid "Back to Login"
 msgstr "ログインに戻る"
 
-#: ../xooclasses/xoo.userultra.class.php:2038
+#: ../xooclasses/xoo.userultra.class.php:2041
 msgid "Send me Password"
 msgstr "パスワードを送ってください"
 
-#: ../xooclasses/xoo.userultra.class.php:2078
-#: ../xooclasses/xoo.userultra.class.php:2090
+#: ../xooclasses/xoo.userultra.class.php:2081
+#: ../xooclasses/xoo.userultra.class.php:2093
 msgid "Your password is too similar to your username."
 msgstr "パスワードは、ユーザ名に似すぎています。"
 
-#: ../xooclasses/xoo.userultra.class.php:2079
-#: ../xooclasses/xoo.userultra.class.php:2091
+#: ../xooclasses/xoo.userultra.class.php:2082
+#: ../xooclasses/xoo.userultra.class.php:2094
 msgid "Both passwords do not match."
 msgstr "パスワードが一致しません。"
 
-#: ../xooclasses/xoo.userultra.class.php:2080
-#: ../xooclasses/xoo.userultra.class.php:2092
+#: ../xooclasses/xoo.userultra.class.php:2083
+#: ../xooclasses/xoo.userultra.class.php:2095
 msgid "Your password is too short."
 msgstr "パスワードが短すぎます。"
 
-#: ../xooclasses/xoo.userultra.class.php:2081
-#: ../xooclasses/xoo.userultra.class.php:2093
+#: ../xooclasses/xoo.userultra.class.php:2084
+#: ../xooclasses/xoo.userultra.class.php:2096
 msgid "Your password strength is too weak."
 msgstr "あなたのパスワードの強度が弱すぎる。"
 
-#: ../xooclasses/xoo.userultra.class.php:2082
-#: ../xooclasses/xoo.userultra.class.php:2094
+#: ../xooclasses/xoo.userultra.class.php:2085
+#: ../xooclasses/xoo.userultra.class.php:2097
 msgid "Your password strength weak."
 msgstr "あなたのパスワード強度が弱い。"
 
-#: ../xooclasses/xoo.userultra.class.php:2083
+#: ../xooclasses/xoo.userultra.class.php:2086
 msgid "Please provide username."
 msgstr "ユーザー名を入力してください。"
 
-#: ../xooclasses/xoo.userultra.class.php:2084
+#: ../xooclasses/xoo.userultra.class.php:2087
 msgid "Please provide email address."
 msgstr "メールアドレスを入力してください。"
 
-#: ../xooclasses/xoo.userultra.class.php:2085
+#: ../xooclasses/xoo.userultra.class.php:2088
 msgid "Please provide valid email address."
 msgstr "有効なメールアドレスを入力してください。"
 
-#: ../xooclasses/xoo.userultra.class.php:2086
+#: ../xooclasses/xoo.userultra.class.php:2089
 msgid "That username is already taken, please try a different one."
 msgstr "そのユーザー名が既に使用されいます。別のものをお試しください。"
 
-#: ../xooclasses/xoo.userultra.class.php:2087
+#: ../xooclasses/xoo.userultra.class.php:2090
 msgid ""
 "The email you entered is already registered. Please try a new email or log "
 "in to your existing account."
@@ -4604,55 +4604,55 @@ msgstr ""
 "あなたが入力したメールアドレスはすでに登録されています。新しいメールを試す"
 "か、既存のアカウントにログインしてください。"
 
-#: ../xooclasses/xoo.userultra.class.php:2095
+#: ../xooclasses/xoo.userultra.class.php:2098
 msgid "Good"
 msgstr "グッド！"
 
-#: ../xooclasses/xoo.userultra.class.php:2096
+#: ../xooclasses/xoo.userultra.class.php:2099
 msgid "Strong"
 msgstr "強い！"
 
-#: ../xooclasses/xoo.userultra.class.php:2098
+#: ../xooclasses/xoo.userultra.class.php:2101
 msgid "ERROR"
 msgstr "エラー"
 
-#: ../xooclasses/xoo.userultra.class.php:2110
+#: ../xooclasses/xoo.userultra.class.php:2113
 msgid "Sign Up"
 msgstr "ログイン"
 
-#: ../xooclasses/xoo.userultra.class.php:2179
+#: ../xooclasses/xoo.userultra.class.php:2182
 #, fuzzy
 msgid "Please enter a username."
 msgstr "名前の入力をお願いします。"
 
-#: ../xooclasses/xoo.userultra.class.php:2233
+#: ../xooclasses/xoo.userultra.class.php:2236
 msgid "Fields with (*) are required"
 msgstr "（*）のフィールドは必須です"
 
-#: ../xooclasses/xoo.userultra.class.php:2237
+#: ../xooclasses/xoo.userultra.class.php:2240
 #, fuzzy
 msgid "Sign up with"
 msgstr "ログイン"
 
-#: ../xooclasses/xoo.userultra.class.php:2302
-#: ../xooclasses/xoo.userultra.class.php:2306
-#: ../xooclasses/xoo.userultra.class.php:2316
-#: ../xooclasses/xoo.userultra.class.php:2325
-#: ../xooclasses/xoo.userultra.class.php:2374
-#: ../xooclasses/xoo.userultra.class.php:2503
-#: ../xooclasses/xoo.userultra.class.php:2507
-#: ../xooclasses/xoo.userultra.class.php:2530
-#: ../xooclasses/xoo.userultra.class.php:2620
+#: ../xooclasses/xoo.userultra.class.php:2305
+#: ../xooclasses/xoo.userultra.class.php:2309
+#: ../xooclasses/xoo.userultra.class.php:2319
+#: ../xooclasses/xoo.userultra.class.php:2328
+#: ../xooclasses/xoo.userultra.class.php:2377
+#: ../xooclasses/xoo.userultra.class.php:2506
+#: ../xooclasses/xoo.userultra.class.php:2510
+#: ../xooclasses/xoo.userultra.class.php:2533
+#: ../xooclasses/xoo.userultra.class.php:2623
 msgid " * This input is required!"
 msgstr " * この入力が必須です！"
 
-#: ../xooclasses/xoo.userultra.class.php:2370
-#: ../xooclasses/xoo.userultra.class.php:2374
+#: ../xooclasses/xoo.userultra.class.php:2373
+#: ../xooclasses/xoo.userultra.class.php:2377
 #, fuzzy
 msgid "Re-type your email"
 msgstr "新しいメールを入力"
 
-#: ../xooclasses/xoo.userultra.class.php:2633
+#: ../xooclasses/xoo.userultra.class.php:2636
 msgid ""
 "If you would like to change the password type a new one. Otherwise leave "
 "this blank."
@@ -4660,25 +4660,25 @@ msgstr ""
 "あなたが変更したい場合は、パスワードは、新しいものを入力します。それ以外の場"
 "合は空白のまま。"
 
-#: ../xooclasses/xoo.userultra.class.php:2637
+#: ../xooclasses/xoo.userultra.class.php:2640
 msgid "Type your new password again."
 msgstr "もう一度新しいパスワードを入力します。"
 
-#: ../xooclasses/xoo.userultra.class.php:2649
+#: ../xooclasses/xoo.userultra.class.php:2652
 #: ../xooclasses/xoo.userultra.user.php:1789
 msgid "Hide from Public"
 msgstr "非公開にします"
 
-#: ../xooclasses/xoo.userultra.class.php:2670
+#: ../xooclasses/xoo.userultra.class.php:2673
 msgid "Payment Information"
 msgstr "お支払い情報"
 
-#: ../xooclasses/xoo.userultra.class.php:2691
+#: ../xooclasses/xoo.userultra.class.php:2694
 msgid "Receive Daily Updates "
 msgstr "毎日更新を受け取る"
 
-#: ../xooclasses/xoo.userultra.class.php:2718
-#: ../xooclasses/xoo.userultra.class.php:2726
+#: ../xooclasses/xoo.userultra.class.php:2721
+#: ../xooclasses/xoo.userultra.class.php:2729
 msgid "Terms & Conditions "
 msgstr "利用規約 & プライバシーポリシー"
 
@@ -4845,7 +4845,7 @@ msgid "Type your reply here..."
 msgstr "ここに返信を入力･･･"
 
 #: ../xooclasses/xoo.userultra.mymessage.php:428
-#: ../xooclasses/xoo.userultra.publisher.php:173
+#: ../xooclasses/xoo.userultra.publisher.php:175
 msgid "Back"
 msgstr "戻る"
 
@@ -4955,17 +4955,17 @@ msgid "Apply"
 msgstr "適用する"
 
 #: ../xooclasses/xoo.userultra.order.php:353
-#: ../xooclasses/xoo.userultra.woocommerce.php:330
+#: ../xooclasses/xoo.userultra.woocommerce.php:322
 msgid "You have no orders."
 msgstr "あなたには注文がない。"
 
 #: ../xooclasses/xoo.userultra.order.php:372
-#: ../xooclasses/xoo.userultra.woocommerce.php:347
+#: ../xooclasses/xoo.userultra.woocommerce.php:339
 msgid "Order #"
 msgstr "順序 #"
 
 #: ../xooclasses/xoo.userultra.order.php:373
-#: ../xooclasses/xoo.userultra.woocommerce.php:348
+#: ../xooclasses/xoo.userultra.woocommerce.php:340
 msgid "Total"
 msgstr "合計"
 
@@ -5125,7 +5125,7 @@ msgid "Select files"
 msgstr "ファイルを選択します"
 
 #: ../xooclasses/xoo.userultra.photos.php:2348
-#: ../xooclasses/xoo.userultra.publisher.php:1314
+#: ../xooclasses/xoo.userultra.publisher.php:1318
 #: ../xooclasses/xoo.userultra.user.php:4954
 msgid "Allowed Files"
 msgstr "許可ファイル"
@@ -5134,147 +5134,147 @@ msgstr "許可ファイル"
 msgid "Invalid Post"
 msgstr "無効な投稿"
 
-#: ../xooclasses/xoo.userultra.publisher.php:128
-msgid "You can't edit this "
-msgstr ""
-
-#: ../xooclasses/xoo.userultra.publisher.php:136
+#: ../xooclasses/xoo.userultra.publisher.php:131
 msgid "Edit Post"
 msgstr "投稿編集"
 
-#: ../xooclasses/xoo.userultra.publisher.php:173
+#: ../xooclasses/xoo.userultra.publisher.php:147
+msgid "You can't edit this "
+msgstr ""
+
+#: ../xooclasses/xoo.userultra.publisher.php:175
 #, fuzzy
 msgid "Back:"
 msgstr "戻る"
 
-#: ../xooclasses/xoo.userultra.publisher.php:179
-#: ../xooclasses/xoo.userultra.publisher.php:357
+#: ../xooclasses/xoo.userultra.publisher.php:181
+#: ../xooclasses/xoo.userultra.publisher.php:359
 msgid "Title:"
 msgstr "タイトル"
 
-#: ../xooclasses/xoo.userultra.publisher.php:185
-#: ../xooclasses/xoo.userultra.publisher.php:365
+#: ../xooclasses/xoo.userultra.publisher.php:187
+#: ../xooclasses/xoo.userultra.publisher.php:367
 msgid "Category:"
 msgstr "カテゴリ："
 
-#: ../xooclasses/xoo.userultra.publisher.php:201
 #: ../xooclasses/xoo.userultra.publisher.php:203
-#: ../xooclasses/xoo.userultra.publisher.php:373
+#: ../xooclasses/xoo.userultra.publisher.php:205
 #: ../xooclasses/xoo.userultra.publisher.php:375
+#: ../xooclasses/xoo.userultra.publisher.php:377
 msgid "-- Select --"
 msgstr "-- 選択 --"
 
-#: ../xooclasses/xoo.userultra.publisher.php:214
-#: ../xooclasses/xoo.userultra.publisher.php:388
+#: ../xooclasses/xoo.userultra.publisher.php:216
+#: ../xooclasses/xoo.userultra.publisher.php:390
 msgid "Post Photos:"
 msgstr "投稿の写真："
 
-#: ../xooclasses/xoo.userultra.publisher.php:240
-#: ../xooclasses/xoo.userultra.publisher.php:413
+#: ../xooclasses/xoo.userultra.publisher.php:242
+#: ../xooclasses/xoo.userultra.publisher.php:415
 msgid "Tags:"
 msgstr "タグ："
 
-#: ../xooclasses/xoo.userultra.publisher.php:316
-#: ../xooclasses/xoo.userultra.publisher.php:351
-#: ../xooclasses/xoo.userultra.publisher.php:473
+#: ../xooclasses/xoo.userultra.publisher.php:318
+#: ../xooclasses/xoo.userultra.publisher.php:353
+#: ../xooclasses/xoo.userultra.publisher.php:475
 msgid "Add New Post"
 msgstr "新規投稿追加"
 
-#: ../xooclasses/xoo.userultra.publisher.php:327
+#: ../xooclasses/xoo.userultra.publisher.php:329
 msgid "Max Allowed Posts: "
 msgstr "最大投稿を許可："
 
-#: ../xooclasses/xoo.userultra.publisher.php:327
+#: ../xooclasses/xoo.userultra.publisher.php:329
 msgid "You have posted: "
 msgstr "あなたの投稿："
 
-#: ../xooclasses/xoo.userultra.publisher.php:483
+#: ../xooclasses/xoo.userultra.publisher.php:485
 msgid "You have no posts."
 msgstr "投稿がありません。"
 
-#: ../xooclasses/xoo.userultra.publisher.php:509
+#: ../xooclasses/xoo.userultra.publisher.php:511
 msgid "Title"
 msgstr "タイトル"
 
-#: ../xooclasses/xoo.userultra.publisher.php:541
+#: ../xooclasses/xoo.userultra.publisher.php:545
 msgid "Access Denied"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.publisher.php:648
+#: ../xooclasses/xoo.userultra.publisher.php:652
 msgid "Live"
 msgstr "Live"
 
-#: ../xooclasses/xoo.userultra.publisher.php:652
+#: ../xooclasses/xoo.userultra.publisher.php:656
 msgid "Offline"
 msgstr "オフライン"
 
-#: ../xooclasses/xoo.userultra.publisher.php:656
+#: ../xooclasses/xoo.userultra.publisher.php:660
 msgid "Awaiting Approval"
 msgstr "承認待ち"
 
-#: ../xooclasses/xoo.userultra.publisher.php:659
+#: ../xooclasses/xoo.userultra.publisher.php:663
 msgid "Scheduled"
 msgstr "スケジュール済み"
 
-#: ../xooclasses/xoo.userultra.publisher.php:692
-#: ../xooclasses/xoo.userultra.publisher.php:1083
+#: ../xooclasses/xoo.userultra.publisher.php:696
+#: ../xooclasses/xoo.userultra.publisher.php:1087
 msgid "Delete Image"
 msgstr "画像削除"
 
-#: ../xooclasses/xoo.userultra.publisher.php:696
+#: ../xooclasses/xoo.userultra.publisher.php:700
 #, fuzzy
 msgid "Main Image"
 msgstr "画像の取り込み"
 
-#: ../xooclasses/xoo.userultra.publisher.php:700
+#: ../xooclasses/xoo.userultra.publisher.php:704
 msgid "Set As Main"
 msgstr ""
 
-#: ../xooclasses/xoo.userultra.publisher.php:744
-#: ../xooclasses/xoo.userultra.publisher.php:946
+#: ../xooclasses/xoo.userultra.publisher.php:748
+#: ../xooclasses/xoo.userultra.publisher.php:950
 msgid "Empty post title"
 msgstr "空の記事のタイトル"
 
-#: ../xooclasses/xoo.userultra.publisher.php:758
 #: ../xooclasses/xoo.userultra.publisher.php:762
-#: ../xooclasses/xoo.userultra.publisher.php:767
-#: ../xooclasses/xoo.userultra.publisher.php:962
+#: ../xooclasses/xoo.userultra.publisher.php:766
+#: ../xooclasses/xoo.userultra.publisher.php:771
 #: ../xooclasses/xoo.userultra.publisher.php:966
-#: ../xooclasses/xoo.userultra.publisher.php:971
+#: ../xooclasses/xoo.userultra.publisher.php:970
+#: ../xooclasses/xoo.userultra.publisher.php:975
 msgid "Please choose a category"
 msgstr "カテゴリを選択してください"
 
-#: ../xooclasses/xoo.userultra.publisher.php:774
-#: ../xooclasses/xoo.userultra.publisher.php:980
+#: ../xooclasses/xoo.userultra.publisher.php:778
+#: ../xooclasses/xoo.userultra.publisher.php:984
 msgid "Empty post content"
 msgstr "空の投稿コンテンツ"
 
-#: ../xooclasses/xoo.userultra.publisher.php:825
+#: ../xooclasses/xoo.userultra.publisher.php:829
 msgid "Post updated successfully."
 msgstr "投稿は正常に更新されました。"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1030
+#: ../xooclasses/xoo.userultra.publisher.php:1034
 msgid "You cannot add more posts "
 msgstr "詳細情報の投稿を追加することはできません。"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1066
+#: ../xooclasses/xoo.userultra.publisher.php:1070
 msgid "Post published successfully. The admin will review it soon"
 msgstr "投稿が正常に発行されました。管理者はすぐにそれを検討します。"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1215
+#: ../xooclasses/xoo.userultra.publisher.php:1219
 #, fuzzy
 msgid "The post has been deleted!"
 msgstr "ユーザーが削除されました"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1275
+#: ../xooclasses/xoo.userultra.publisher.php:1279
 msgid "Drop Images Here"
 msgstr "ここに画像をドロップします。"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1278
+#: ../xooclasses/xoo.userultra.publisher.php:1282
 msgid "Select Files"
 msgstr "ファイルを選択します"
 
-#: ../xooclasses/xoo.userultra.publisher.php:1388
+#: ../xooclasses/xoo.userultra.publisher.php:1392
 #, fuzzy
 msgid "The file you selected exceeds the maximum file size limit."
 msgstr "あなたが選択したファイルは、最大ファイルサイズの制限を超えています。"
@@ -5740,11 +5740,11 @@ msgstr "保留中の管理"
 msgid "Active"
 msgstr "アクティブ"
 
-#: ../xooclasses/xoo.userultra.woocommerce.php:187
+#: ../xooclasses/xoo.userultra.woocommerce.php:183
 msgid "Woocommerce File Doesn't Exist"
 msgstr "Woocommerceファイルが存在しません"
 
-#: ../xooclasses/xoo.userultra.woocommerce.php:350
+#: ../xooclasses/xoo.userultra.woocommerce.php:342
 msgid "Modified Date"
 msgstr "変更日"
 

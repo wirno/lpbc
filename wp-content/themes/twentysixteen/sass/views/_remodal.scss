@@ -1,0 +1,101 @@
+.remodal-wish {
+	padding: 0;
+
+	h3 {
+		background-color: #373737;
+		height: 66px;
+		color: #eece84;
+		text-transform: uppercase;
+		font-family: 'latobold';
+		font-size: 16px;
+		letter-spacing: 2px;
+		vertical-align: middle;
+		line-height: 66px;
+	}
+
+	.content {
+		width: 250px;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: left;
+
+		p.title {
+			color: #909090;
+			font-size: 12px;
+		}
+
+		.line {
+			margin-top: 8px;
+			width: 90%;
+			border: 1px solid #cccccc;
+			opacity: 0.3;
+		}
+
+		.left {
+			line-height: 38px;
+			float: left;
+			vertical-align: middle;
+		}
+		.right {
+			float: right;
+
+			.remodal-button {
+				min-width: 0;
+				width: 90px !important;
+			}
+		}
+
+		ul {
+			margin-bottom: 60px;
+			li {
+				margin-top: 8px;
+
+				p {
+					font-size: 13px;
+					font-family: 'latomedium';
+					letter-spacing: 1px;
+				}
+			}
+		}
+		.cta-button {
+			text-align: center;
+			margin: 0 auto;
+			margin-bottom: 25px;
+		}
+	}
+
+	form {
+		margin-top: 36px;
+		margin-bottom: 36px;
+
+		input {
+			height: 18px;
+			font-size: 14px;
+			text-indent: 6px;
+			width: 100%;
+		}
+
+		::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			letter-spacing: 2px;
+			font-size: 14px;
+		}
+		:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			letter-spacing: 2px;
+			opacity:  1;
+			font-size: 14px;
+
+		}
+		::-moz-placeholder { /* Mozilla Firefox 19+ */
+			letter-spacing: 2px;
+			opacity:  1;
+			font-size: 14px;
+
+		}
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			letter-spacing: 2px;
+			font-size: 14px;
+
+		}
+	}
+
+}

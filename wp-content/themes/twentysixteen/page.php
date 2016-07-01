@@ -1,45 +1,32 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Sixteen
+ * @since Twenty Sixteen 1.0
+ */
 
-	<main role="main">
-		<!-- section -->
-		<section>
+get_header(); ?>
 
-			<h1><?php the_title(); ?></h1>
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
+		<?php
+		// Start the loop.
+		while ( have_posts() ) : the_post();
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+			// Include the page content template.
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		the_content();
+			// End of the loop.
+		endwhile;
+		?>
 
-				<?php the_content(); ?>
-
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+	</main><!-- .site-main -->
+</div><!-- .content-area -->
 
 <?php get_footer(); ?>

@@ -11,8 +11,7 @@ class XooWooCommerce {
 		
 	}	 
 	function handle_init() {
-		global $pagenow;
-		
+		global $pagenow;		
 		
 		$tab  = '';
 		if(isset($_GET['tab']))
@@ -24,7 +23,6 @@ class XooWooCommerce {
 		if('admin.php' == $pagenow && isset($_GET['page']) && ('import' == $tab) 
 			&& in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ){
 
-			// Load Woocommerce file based on version number
 			$this->woocommerce_version =  get_option('woocommerce_db_version');
 			$plugin_dir_path = plugin_dir_path( dirname(dirname(__FILE__)) );
 			if(version_compare( $this->woocommerce_version, '2.0.20') == '1'){
@@ -109,8 +107,7 @@ class XooWooCommerce {
 							case 'shipping_state': $icon = 0; break;
 							case 'shipping_country': $icon = 'map-marker'; break;
 							default: $icon = 0; break;
-						}
-						
+						}						
 						switch($meta) {
 							
 							case 'billing_country':
@@ -158,8 +155,7 @@ class XooWooCommerce {
 								'social' => 0,
 								'deleted' => 0
 							);
-							break;
-						
+							break;						
 						}
 					}
 						
@@ -184,8 +180,7 @@ class XooWooCommerce {
 						$woo_meta = woocommerce_get_customer_meta_fields();
 					}				
 				}else{
-					echo __('Woocommerce File Doesn\'t Exist','xoousers');exit;
-				}	
+					echo __('Woocommerce File Doesn\'t Exist','xoousers');exit;				}	
 
 							
 				$new_index = 0;
@@ -274,10 +269,8 @@ class XooWooCommerce {
 								'deleted' => 0
 							);
 							break;						
-						}
-						
-					}
-					
+						}						
+					}					
 				}				
 				update_option('usersultra_profile_fields', $fields);				
 				
@@ -316,8 +309,7 @@ class XooWooCommerce {
                      )         )
         );
  
-		
-        $loop = new WP_Query( $args );
+		$loop = new WP_Query( $args );
 		
 		//print_r($loop );
 				
@@ -366,8 +358,7 @@ class XooWooCommerce {
                             <td><?php echo woocommerce_price($order->order_total);?></td>
 							<td> <?php echo $order->order_date; ?></td>
 							<td><?php echo $order->modified_date; ?></td>
-                            <td><?php echo $order->status; ?></td>
-                            
+                            <td><?php echo $order->status; ?></td>                            
                             
 							<?php
 	

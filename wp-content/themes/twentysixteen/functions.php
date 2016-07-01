@@ -10,6 +10,159 @@
 \*------------------------------------*/
 
 // Load any external files you have here
+require_once('include/DMStoDD.php');
+require_once('include/next_taxo.php');
+require_once('include/short_description.php');
+require_once('include/wishlist.php');
+require_once('include/dompdf/autoload.inc.php');
+add_theme_support('post-thumbnails');
+add_action('init', 'create_custom_post_type');
+add_action('init', 'create_custom_taxonomy');
+
+
+function create_custom_post_type(){
+    register_post_type('chateaux',array(
+        'labels'=>array(
+            'name'=>__('Chateaux'),
+            'all_items'=>('Tous les châteaux'),
+            'singular_name'=>__('Chateau'),
+            'add_new'=>('Ajouter un château')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+
+
+    register_post_type('evenements',array(
+        'labels'=>array(
+            'name'=>__('Evenements'),
+            'all_items'=>('Tous les événements'),
+            'singular_name'=>__('Evenement'),
+            'add_new'=>('Ajouter un événement')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+
+        register_post_type('anecdotes',array(
+        'labels'=>array(
+            'name'=>__('Anecdotes'),
+            'all_items'=>('Toutes les anecdotes'),
+            'singular_name'=>__('Anecdote'),
+            'add_new'=>('Ajouter une anecdote')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+
+    register_post_type('monuments-et-musees',array(
+        'labels'=>array(
+            'name'=>__('Monuments et musées'),
+            'all_items'=>('Tous les monuments et musées'),
+            'singular_name'=>__('Monument et musée'),
+            'add_new'=>('Ajouter un musée ou monument')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+
+
+    register_post_type('region',array(
+        'labels'=>array(
+            'name'=>__("Region"),
+            'all_items'=>("Toutes les régions"),
+            'singular_name'=>__("Région"),
+            'add_new'=>("Ajouter une région")
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+}
+
+        register_post_type('blog',array(
+        'labels'=>array(
+            'name'=>__('Blog'),
+            'all_items'=>('Tous les articles'),
+            'singular_name'=>__('Articles'),
+            'add_new'=>('Ajouter un article')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+        register_post_type('wishlist',array(
+        'labels'=>array(
+            'name'=>__('Wishlist'),
+            'all_items'=>('Toutes les wishlists'),
+            'singular_name'=>__('Wishlist'),
+            'add_new'=>('Ajouter une wishlist')
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+
+/*
+    register_post_type('point-interet',array(
+        'labels'=>array(
+            'name'=>__("Point d'interet"),
+            'all_items'=>("Tous les points d'intérêts"),
+            'singular_name'=>__("Point d'intérêt"),
+            'add_new'=>("Ajouter un point d'intérêt")
+        ),
+        'public'=>true,
+        'supports'=>array(
+            'title','editor','thumbnail','comments'),
+        'has_archive'=>true
+    ));
+*/
+
+function create_custom_taxonomy(){
+    register_taxonomy(
+        'regions',
+        array('chateaux','monuments-et-musees','region','evenements','blog'),
+        array(
+            'label'=>__('regions'),
+            'hierarchical'=>true,
+            ));
+
+    register_taxonomy(
+        'epoque',
+        array('chateaux','monuments-et-musees'),
+        array(
+            'label'=>__('epoque'),
+            'hierarchical'=>true,
+            ));
+
+    register_taxonomy(
+        'style',
+        array('chateaux','monuments-et-musees'),
+        array(
+            'label'=>__('style'),
+            'hierarchical'=>true,
+            ));
+
+    register_taxonomy(
+        'roi',
+        array('chateaux'),
+        array(
+            'label'=>__('roi'),
+            'hierarchical'=>true,
+            ));
+}
+
 
 /*------------------------------------*\
 	Theme Support

@@ -9,7 +9,6 @@ $view= "";
 $reply= "";
 $post_id ="";
 
-
 if(isset($_GET["module"])){	$module = $_GET["module"];	}
 if(isset($_GET["act"])){$act = $_GET["act"];	}
 if(isset($_GET["gal_id"])){	$gal_id = $_GET["gal_id"];}
@@ -58,9 +57,7 @@ $howmany = 5;
            
               <li><?php echo $xoouserultra->userpanel->get_user_backend_menu('dashboard');?></li>
               
-               <?php if(!in_array("account",$modules)){?>  
-               
-              
+               <?php if(!in_array("account",$modules)){?>            
                
                
                 	<?php if(!$xoouserultra->check_if_disabled_for_this_user($user_id, "account", $modules_custom_user, $modules_custom_user_id )){?> 
@@ -169,7 +166,6 @@ $howmany = 5;
 	<div class="usersultra-dahsboard-center"> 
     
         <?php
-        //cutom message
 		
 		$message_custom = $xoouserultra->get_option('messaging_private_all_users');
 		
@@ -285,7 +281,6 @@ $howmany = 5;
 										}, function (response){									
 																			
 											$("#uultra-my-friends-request").html(response);
-											//alert	(response);
 											show_all_friends();										
 																	
 									});
@@ -370,8 +365,6 @@ $howmany = 5;
                  
                   <?php  if($act=="edit") {
 					  
-					 // echo "DD ".$post_id;
-					 
 					  ?>           
                   
                          
