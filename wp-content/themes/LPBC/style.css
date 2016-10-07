@@ -1448,13 +1448,13 @@ ul, li {
     width: 308px;
     left: 789px;
     top: -218px;
-    height: 437px;
+    height: auto;
     background-color: #373737;
     z-index: 999999999999;
     padding-left: 24px;
     padding-top: 30px; }
     #castle-infos .pratique div {
-      width: 180px;
+      width: 100%;
       margin-top: 28px; }
       #castle-infos .pratique div.tarifs > p:not(:first-of-type) {
         margin-top: 8px; }
