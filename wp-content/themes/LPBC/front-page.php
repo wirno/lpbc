@@ -14,11 +14,20 @@
 	if ($the_query->have_posts() ) : 
 		while ($the_query->have_posts() ) : $the_query->the_post();
 			$get_name = get_post_custom_values('nom');
+			$test = get_post_custom();
 			$name_chateau = $get_name[0];
 			if($first_chateau){
 				?>
 					<section class="header-global" id="home-content">
-					<div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/<?php echo $name_chateau; ?>.jpg');">
+						<?php
+						if ( has_post_thumbnail() ) {
+							$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+							if ( ! empty( $large_image_url[0] ) ) {
+								$imageurl = $large_image_url[0];
+							}
+						}
+						?>
+					<div class="home-main" style="background-image: url('<?= esc_url($imageurl); ?>');">
 						<div class="overlay"></div>
 						<div class="discover-content">
 						<h1>Découvrez le <?php the_title(); ?></h1>

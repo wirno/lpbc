@@ -1679,7 +1679,7 @@ ul, li {
   vertical-align: top; }
 #castle-infos .general ul li:last-child {
   margin-right: 0;
-  width: 160px; }
+}
 #castle-infos .general ul li:last-child p {
   font-family: 'lato_italic'; }
 #castle-infos .general a {
@@ -1694,13 +1694,13 @@ ul, li {
   width: 308px;
   left: 789px;
   top: -218px;
-  height: 437px;
+  height: auto;
   background-color: #373737;
   z-index: 999999999999;
   padding-left: 24px;
   padding-top: 30px; }
 #castle-infos .pratique div {
-  width: 180px;
+  width: 100%;
   margin-top: 28px; }
 #castle-infos .pratique div.tarifs > p:not(:first-of-type) {
   margin-top: 8px; }
@@ -1946,7 +1946,7 @@ time {
   width: 100.01%; }
 .castle-proximity .left ul li {
   display: inline-block;
-  width: 33.33333333%;
+  width: 33%;
   line-height: 89px;
   text-align: center;
   vertical-align: middle;
