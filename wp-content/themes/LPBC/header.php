@@ -50,7 +50,7 @@
 					<div class="nav-bar">
 						<ul class="nav">
 							<li class="nav-item active"><a href="<?= get_home_url(); ?>">Accueil</a></li>
-							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'chateaux' ) ) ?>">Châteaux</a></li>
+							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'chateau' ) ) ?>">Châteaux</a></li>
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'regions' ) ) ?>">Régions</a></li>
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'evenement' ) ) ?>">Événements</a></li>
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'monument-musee' ) ) ?>">Monuments & Musées </a></li>

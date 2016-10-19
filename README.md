@@ -1,2 +1,0 @@
-# lpbc
-HETIC (school) project

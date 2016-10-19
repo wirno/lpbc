@@ -1,21 +1,31 @@
 <?php get_header(); ?>
-<?php 
+<?php
 if (have_posts()) :
 	while (have_posts()) : the_post();
+$images = get_field('image');
 ?>
 <main id="main" role="main">
 	<!-- Recherche châteaux -->
 	<section id="castle-search-header" class="search-result-header header-global blog-header">
-		<div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg');">
+		<?php
+		if ( has_post_thumbnail() ) {
+			$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+			if ( ! empty( $large_image_url[0] ) ) {
+				$imageurl = $large_image_url[0];
+			}
+		}
+		?>
+		<div class="home-main" style="background-image: url('<?= esc_url($imageurl); ?>');">
 			<div class="overlay"></div>
 			<div class="discover-content">
 				<h1><?php the_title(); ?></h1>
-				<?php 
-				$get_description = get_the_content();
-				$description = get_short_description($get_description, 60, 80);
+				<?php
+				$get_description = get_post_custom_values('description');
+				$description = $get_description[0];
+				$description_short = get_short_description($description, 60, 80); ?>
 
 				?>
-				<p><?php print($description); ?></p>
+				<p><?php print($description_short); ?></p>
 			</div>
 		</div>
 		<div class="link">
@@ -56,27 +66,44 @@ if (have_posts()) :
 			<p><?php print(get_the_author()); ?>, <?php the_date(); ?></p>
 		</div>
 		<div class="main-part">
-			<h2>Lorem Ipsum</h2>
-			<?php $explode_description = explode("============", $get_description); ?>
+			<?php
+			$get_heading= get_post_custom_values('heading');
+			$heading = $get_heading[0];?>
+			<h2><?php print($heading); ?></h2>
+			<?php $explode_description = explode("============", $description); ?>
 			<p><?php print($explode_description[0]); ?></p>
 		</div>
 		<div class="second-part">
-			<h3>Lorem Ipsum</h3>
 			<p><?php print($explode_description[1]); ?></p>
 		</div>
 		<div class="quotation">
-			<?php 
-			$description = get_short_description($get_description, 20, 45); ?>
-			<p>«<?php print($description); ?>»</p>
+			<?php
+			$get_quote = get_post_custom_values('quote');
+			$quote = $get_quote[0];?>
+			<p>«<?php print($quote); ?>»</p>
 		</div>
 		<div class="picture">
-			<img src="<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg" alt="">
+			<img src="<?php $images[0]['url'] ? print(esc_url($images[0]['url'])) : print(''); ?>" alt="">
 			<p></p>
 		</div>
 		<div class="main-part">
-			<h2>Lorem Ipsum</h2>
-			<p><?php print($explode_description[2]); ?></p>
-			<p><?php print($explode_description[3]); ?></p>
+			<?php
+			$get_heading = get_post_custom_values('heading_2');
+			$heading = $get_heading[0];?>
+			<h2><?php print($heading); ?></h2>
+			<?php
+			$get_description = get_post_custom_values('description_2');
+			$description = $get_description[0];
+			$explode_description = explode("============", $description);
+			?>
+			<p><?php print($explode_description[0]); ?></p>
+			<p><?php print($explode_description[1]); ?></p>
+		</div>
+		<div class="quotation">
+			<?php
+			$get_quote = get_post_custom_values('quote_2');
+			$quote = $get_quote[0];?>
+			<p>«<?php print($quote); ?>»</p>
 		</div>
 	</section>
 	<!-- /Article -->
@@ -90,15 +117,15 @@ if (have_posts()) :
 		<div class="clear"></div>
 		<div class="overlay"></div>
 		<div class="content">
-			<h2>Article suivant</h2>
+			<?php if(get_adjacent_post(false, '', false)) { ?>
+				<h2>Article suivant</h2>
 			<div class="cta-discover">
-				<?php if(get_adjacent_post(false, '', false)) {
-					next_post_link('%link', 'Lire'); 
-				} 
-				else{
-					previous_post_link('%link', 'Lire'); 
-				}
-				?>
+				<?php next_post_link('%link', 'Lire');
+				} else { ?>
+				<h2>Article Précedent</h2>
+				<div class="cta-discover">
+					<?php previous_post_link('%link', 'Lire');
+				} ?>
 			</div>
 		</div>
 	</section>

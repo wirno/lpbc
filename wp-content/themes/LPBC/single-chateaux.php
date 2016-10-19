@@ -128,7 +128,7 @@ $images = get_field('image');
             $main = false;
             $i = 0;
             print('</div>');
-            ?><div class="sided"><div class="left"><img src="<?php $images[0]['url'] ? print($images[0]['url']) : print(''); ?>" alt=""></div>
+            ?><div class="sided"><div class="left"><img src="<?php $images[0]['url'] ? print(esc_url($images[0]['url'])) : print(''); ?>" alt=""></div>
 
                 <?php continue;
                 } elseif($main) {
@@ -231,11 +231,11 @@ $explode_blocLibre = explode("============", $blocLibre);
                <?php } ?>
             </div><div class="right">
                 <div class="top" style="height: 300px;">
-                    <img style="height: 300px;width: 640px;"src="<?php $images[1]['url'] ? print($images[1]['url']) : print(''); ?>" alt="">
+                    <img style="height: 300px;width: 640px;"src="<?php $images[1]['url'] ? print(esc_url($images[1]['url'])) : print(''); ?>" alt="">
                 </div>
                 <div class="bottom">
-                    <div class="left" style="background-image: url('<?php $images[2]['url'] ? print($images[2]['url']) : print(''); ?>');">
-                    </div><div class="right" style="background-image: url('<?php $images[3]['url'] ? print($images[3]['url']) : print(''); ?>');">
+                    <div class="left" style="background-image: url('<?php $images[2]['url'] ? print(esc_url($images[2]['url'])) : print(''); ?>');">
+                    </div><div class="right" style="background-image: url('<?php $images[3]['url'] ? print(esc_url($images[3]['url'])) : print(''); ?>');">
                     </div>
                 </div>
             </div>
@@ -345,20 +345,30 @@ $explode_blocLibre = explode("============", $blocLibre);
     $the_query = new WP_Query($args);
 
     if ($the_query->have_posts() ) : ?>
+
+
     <!-- Événements -->
-    <section id="castle-events">
+    <section id="castle-events" style = "margin-top: 73px;">
         <div class="header-cards">
     <span>
       <h2>Événements</h2>
       <div class="cta">
-        <a href="">Tout voir</a>
+        <a href="#">Tout voir</a>
       </div>
     </span>
         </div>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+                        if ( ! empty( $large_image_url[0] ) ) {
+                            $imageurl = $large_image_url[0];
+                        }
+                    }
+                    ?>
+                    <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
                         <div class="main">
                             <div class="content">
@@ -411,7 +421,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                             </div>
                         </div>
                     </div>
-                <?php endwhile; endif; ?>
+                <?php endwhile; ?>
             </div>
         </div>
         <div class="buttons-slider">
@@ -426,6 +436,7 @@ $explode_blocLibre = explode("============", $blocLibre);
         </div>
         <div class="clear"></div>
     </section>
+    <?php endif; ?>
 
 
 
@@ -461,7 +472,15 @@ $explode_blocLibre = explode("============", $blocLibre);
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+                        if ( ! empty( $large_image_url[0] ) ) {
+                            $imageurl = $large_image_url[0];
+                        }
+                    }
+                    ?>
+                    <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
                         <div class="main">
                             <div class="content">
@@ -480,7 +499,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                                     <p><?php print($description); ?></p>
 
                                     <div class="cta-discover">
-                                        <a href="#">Découvrir</a>
+                                        <a href="<?php the_permalink(); ?>">Découvrir</a>
                                     </div>
 
                                     <div class="tags">

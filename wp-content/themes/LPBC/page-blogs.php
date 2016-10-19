@@ -3,18 +3,16 @@
     <main id="main" role="main">
         <!-- Recherche châteaux -->
         <section id="castle-search-header" class="search-result-header header-global">
-            <div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/evenement.jpg');">
+            <div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/blog.jpg');">
                 <div class="overlay"></div>
                 <div class="discover-content">
-                    <h1>Découvrez les évenements des region de France</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet
-                        sed eu felis.
-                    </p>
+                    <h1>Le blog</h1>
+                    <p>Décourvrir le patrimoine n'a jamais été aussi simple.</p>
                 </div>
             </div>
             <div class="link">
 			<span>
-				<p>Image : évenements de la tour</p>
+				<p>Image : article</p>
 				<div class="cta">
 					<a href="http://lpbc.dev/chateaux/chateau-desclimont/">Voir</a>
 				</div>
@@ -40,10 +38,56 @@
                             if($terms){
                                 foreach ($terms as $key => $value) {
                                     $args = array(
-                                        'post_type' => 'evenements',
+                                        'post_type' => 'blog',
                                         'tax_query' => array(
                                             array(
                                                 'taxonomy' => 'regions',
+                                                'field'    => 'slug',
+                                                'terms'    => $value->slug
+                                            )
+                                        )
+                                    );
+                                    $chateau_query = new WP_Query($args);
+                                    $count_regions_post[$value->slug] = array(
+                                        'chateau'=>$chateau_query->post_count
+                                    );
+                                }
+                            }
+                            $total_region = 0;
+                            foreach ($count_regions_post as $key => $value) {
+                                $total_region += $value['chateau'];
+                            }
+                            ?>
+                            <p class="right"><?php print($total_region); ?></p>
+                            <div class="clear"></div>
+                        </div>
+                        <div id="myDropdown" class="dropdown-content">
+                            <?php foreach ($count_regions_post as $key => $value) {
+                                if($value['chateau'] != 0){
+                                    ?><div class="filter" data-filter=".category-<?php print($key);?>">
+                                    <p class="left"><?php print($key); ?></p>
+                                    <p class="right"><?php print($value['chateau']); ?></p>
+                                    <div class="clear"></div>
+                                    </div>
+                                    <div class="line"></div>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                        <div class="filter-button">
+                            <p class="left">tags</p>
+
+                            <?php
+                            $terms = get_terms('tag', array('hide_empty' => false));
+                            $count_regions_post = [];
+                            if($terms){
+                                foreach ($terms as $key => $value) {
+                                    $args = array(
+                                        'post_type' => 'blog',
+                                        'tax_query' => array(
+                                            array(
+                                                'taxonomy' => 'tag',
                                                 'field'    => 'slug',
                                                 'terms'    => $value->slug
                                             )
@@ -85,7 +129,7 @@
                     <div id="Container">
                         <?php
                         $args= array(
-                            'post_type' =>'evenements',
+                            'post_type' =>'blog',
                             'orderby'=>'asc'
                         );
                         $the_query = new WP_Query( $args );
