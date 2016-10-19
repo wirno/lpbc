@@ -41,8 +41,9 @@
 			$the_query = new WP_Query($args);
 			if ($the_query->have_posts() ) : 
 				while ($the_query->have_posts() ) : $the_query->the_post();
-			?>
-			<div class="swiper-slide-map swiper-slide <?php print($value->slug); ?>" data-link="<?= get_permalink( get_page_by_title( 'un-evenement' ) ) ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png'); opacity: 1;">
+					 $region_permalink= get_term_link($value);
+					?>
+			<div class="swiper-slide-map swiper-slide <?php print($value->slug); ?>" data-link="<?= $region_permalink; ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png'); opacity: 1;">
 				<div class="overlay"></div>
 				<div class="main">
 					<div class="content">
