@@ -16,7 +16,7 @@
 
 	<section class="regions-map">
 		<div class="title">
-			<h1>Décrouvez le patrimoine des régions de France.</h1>
+			<h1>Découvrez notre séléction de monuments & musées par région.</h1>
 		</div>
 		<?php echo file_get_contents(get_template_directory_uri()."/img/regions-france.svg"); ?>
 		<div class="clear"></div>
@@ -27,7 +27,7 @@
 		$terms = get_terms('regions', array('hide_empty' => false));
 		foreach ($terms as $key => $value) {
 			$args = array(
-				'post_type' => 'evenements',
+				'post_type' => 'monuments-et-musees',
 				'posts_per_page' => 1,
 				'tax_query' => array(
 					array(
@@ -41,9 +41,8 @@
 			$the_query = new WP_Query($args);
 			if ($the_query->have_posts() ) : 
 				while ($the_query->have_posts() ) : $the_query->the_post();
-					 $region_permalink= get_term_link($value);
-					?>
-			<div class="swiper-slide-map swiper-slide <?php print($value->slug); ?>" data-link="<?= $region_permalink; ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png'); opacity: 1;">
+			?>
+			<div class="swiper-slide-map swiper-slide <?php print($value->slug); ?>" data-link="<?= get_permalink( get_page_by_title( 'un-evenement' ) ) ?>" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png'); opacity: 1;">
 				<div class="overlay"></div>
 				<div class="main">
 					<div class="content">
@@ -110,7 +109,8 @@
 		<section id="castle-events-map" class="home-events">
 			<div class="header-cards">
 				<span>
-					<h2>Événements à venir</h2>
+					<h2>Les monuments & musées</h2>
+
 					<div class="cta">
 						<a href="">Tout voir</a>
 					</div>
@@ -121,7 +121,7 @@
 
 					<?php 		
 					$args = array(
-						'post_type' => 'evenements',
+						'post_type' => 'monuments-et-musees',
 						'posts_per_page' => -1
 						);
 					$the_query = new WP_Query($args);
@@ -214,7 +214,7 @@
 			<section id="castles-une">
 				<div class="header-cards">
 					<span>
-						<h2>Les événements par régions</h2>
+						<h2>Les monuments & musées par régions</h2>
 						<div class="cta">
 							<a href="#">Tout voir</a>
 						</div>
@@ -227,7 +227,7 @@
 						$terms = get_terms('regions', array('hide_empty' => false));
 						foreach ($terms as $key => $value) {
 							$args = array(
-								'post_type' => 'evenements',
+								'post_type' => 'monuments-et-musees',
 								'posts_per_page' =>-1,
 								'tax_query' => array(
 									array(

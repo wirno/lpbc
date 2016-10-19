@@ -731,6 +731,8 @@ ul, li {
   width: 280px !important; }
 .swiper-slide .overlay {
   position: absolute;
+  top: 0px;
+  left: 0px;
   width: 280px;
   height: 359px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -1375,7 +1377,7 @@ ul, li {
   left: 10px; }
 
 .buttons-slider {
-  margin-top: -60px; }
+}
 
 #home-articles .content {
   margin-top: 0; }

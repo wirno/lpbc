@@ -3,12 +3,18 @@
 <main id="main" role="main">
 	<!-- Discover -->
 	<?php 
-	$first_chateau = true;
-	$args= array(
-		'post_type' =>'chateaux',
-		'posts_per_page'=>5,
-		'orderby'=>'asc'
-		);
+
+    $args = array(
+		'post_type' => 'chateaux',
+		'orderby'=>'asc',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'tag',
+				'field'    => 'slug',
+				'terms'    => 'a-la-une'
+			)
+		)
+	);
 
 	$the_query = new WP_Query( $args );
 	if ($the_query->have_posts() ) : 
@@ -16,7 +22,6 @@
 			$get_name = get_post_custom_values('nom');
 			$test = get_post_custom();
 			$name_chateau = $get_name[0];
-			if($first_chateau){
 				?>
 					<section class="header-global" id="home-content">
 						<?php
@@ -40,105 +45,144 @@
 				</div>
 				</div>
 				</section>
-				<!-- /Discover -->
-				<!-- Chateaux similaires -->
-				<section id="castles-une">
-				<div class="header-cards">
-					<span>
-						<h2>Châteaux à la une</h2>
-						<div class="cta">
-							<a href="#">Tout voir</a>
-						</div>
-					</span>
-				</div>
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-				<?php $first_chateau = false;
-			}
-			else{
-				?> <div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/<?php print($name_chateau); ?>.jpg');">
-				<div class="overlay"></div>
-				<div class="main">
-					<div class="content">
-						<div class="main">
-							<?php $title = get_the_title(); ?>
-							<h4><?php print($title); ?></h4>
-							<span class="location">
-								<svg fill="#f2d374" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
-									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-									<path d="M0 0h24v24H0z" fill="none"/></svg>
-									<?php 
-									$commune = get_post_custom_values('commune');
-									$terms = get_the_terms($post->id, 'regions');
-        							$region = $terms[0]->slug; 
-        							?>
-        							<p><?php print($commune[0]);
-        							if(isset($region)){
-        								print(' - ' . $region);
-        							}
-        							?></p>
+	<?php endwhile; endif; ?>
 
-								</span>
-							</div>
-							<div class="hover">
-								<div class="cta-discover">
-									<a href="<?php the_permalink(); ?>">Découvrir</a>
-								</div>
 
-								<div class="tags">
-									<span>
-										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="18" width="18" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-199 188 100 100" style="enable-background:new -199 188 100 100;" xml:space="preserve" fill="#eece84">
-											<style type="text/css">
-												.st0{display:none;}
-												.st1{display:inline;}
-											</style>
-											<g class="st0">
-												<path class="st1" d="M-149,220c9.9,0,18,8.1,18,18c0,9.9-8.1,18-18,18c-9.9,0-18-8.1-18-18C-167,228.1-158.9,220-149,220 M-149,202
-												c-19.9,0-36,16.1-36,36s16.1,36,36,36c19.9,0,36-16.1,36-36S-129.1,202-149,202L-149,202z"/>
-											</g>
-											<g class="st0">
-												<path class="st1" d="M-148.5,210c-19.9,0-36,11-36,24.7c0,6.5,3.7,12.3,9.6,16.7l-4,14.6l20.5-7.6c3.1,0.6,6.4,1,9.9,1
-												c19.9,0,36-11.1,36-24.7C-112.6,221.1-128.7,210-148.5,210z"/>
-											</g>
-											<g class="st0">
 
-												<rect x="-183.8" y="220.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 121.7817 176.2556)" class="st1" width="63.8" height="30"/>
-												<polygon class="st1" points="-134.2,274 -134.2,274 -113,274 -113,252.8 -113,252.8 	"/>
-											</g>
-											<path d="M-108.5,188.1h-35.7c-2.5,0-4.9,1-6.7,2.8l-45.2,45.2c-3.7,3.7-3.7,9.7,0,13.5l35.6,35.6c1.9,1.9,4.3,2.8,6.7,2.8
-											c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
-											c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
-										</svg>
 
-										<p>
-										<a href="">Château</a>, <a href=""><?php print($region); ?></a></p>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			<?php
-			}
-		endwhile;
-	endif;
-	?>
+
+
+
+
+
+
+
+
+
+	<?php
+	$args = array(
+		'post_type' => 'chateaux',
+		'orderby'=>'asc',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'tag',
+				'field'    => 'slug',
+				'terms'    => 'front-page'
+			)
+		)
+	);
+	$the_query = new WP_Query($args);
+
+	if ($the_query->have_posts() ) : ?>
+
+
+		<section id="castle-events" style = "margin-top: 73px;">
+			<div class="header-cards">
+    <span>
+      <h2>Château a la une</h2>
+      <div class="cta">
+        <a href="#">Tout voir</a>
+      </div>
+    </span>
 			</div>
-		</div>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
+						<?php
+						if ( has_post_thumbnail() ) {
+							$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+							if ( ! empty( $large_image_url[0] ) ) {
+								$imageurl = $large_image_url[0];
+							}
+						}
+						?>
+						<div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
+							<div class="overlay"></div>
+							<div class="main">
+								<div class="content">
+									<div class="main">
+										<h4><?php the_title(); ?></h4>
+                <span class="location">
+                  <svg fill="#f2d374" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/></svg>
+                    <p><?php print($terms_region[0]->slug); ?></p>
+                  </span>
+									</div>
+									<div class="hover">
+										<?php $get_description = get_post_custom_values('description');
+										$description = get_short_description($get_description[0], 60, 80); ?>
+										<p><?php print($description); ?></p>
+
+										<div class="cta-discover">
+											<a href="<?php the_permalink(); ?>">Découvrir</a>
+										</div>
+
+										<div class="tags">
+                    <span>
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="18" width="18" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-199 188 100 100" style="enable-background:new -199 188 100 100;" xml:space="preserve" fill="#eece84">
+                        <style type="text/css">
+                          .st0{display:none;}
+						  .st1{display:inline;}
+                        </style>
+                        <g class="st0">
+                          <path class="st1" d="M-149,220c9.9,0,18,8.1,18,18c0,9.9-8.1,18-18,18c-9.9,0-18-8.1-18-18C-167,228.1-158.9,220-149,220 M-149,202
+                          c-19.9,0-36,16.1-36,36s16.1,36,36,36c19.9,0,36-16.1,36-36S-129.1,202-149,202L-149,202z"/>
+                        </g>
+                        <g class="st0">
+                          <path class="st1" d="M-148.5,210c-19.9,0-36,11-36,24.7c0,6.5,3.7,12.3,9.6,16.7l-4,14.6l20.5-7.6c3.1,0.6,6.4,1,9.9,1
+                          c19.9,0,36-11.1,36-24.7C-112.6,221.1-128.7,210-148.5,210z"/>
+                        </g>
+                        <g class="st0">
+
+                          <rect x="-183.8" y="220.1" transform="matrix(0.7071 0.7071 -0.7071 0.7071 121.7817 176.2556)" class="st1" width="63.8" height="30"/>
+                          <polygon class="st1" points="-134.2,274 -134.2,274 -113,274 -113,252.8 -113,252.8   "/>
+                        </g>
+                        <path d="M-108.5,188.1h-35.7c-2.5,0-4.9,1-6.7,2.8l-45.2,45.2c-3.7,3.7-3.7,9.7,0,13.5l35.6,35.6c1.9,1.9,4.3,2.8,6.7,2.8
+                        c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
+                        c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
+                      </svg>
+                      <p>Médiéval, Moyen-Age</p>
+                    </span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php endwhile; ?>
+				</div>
+			</div>
 			<div class="buttons-slider">
 				<div class="button-prev"><svg fill="#f2d374" height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
-					<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-					<path d="M0 0h24v24H0z" fill="none"/>
-				</svg></div>
+						<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg></div>
 				<div class="button-next"><svg fill="#f2d374" height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
-					<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-					<path d="M0 0h24v24H0z" fill="none"/>
-				</svg></div>
+						<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+						<path d="M0 0h24v24H0z" fill="none"/>
+					</svg></div>
 			</div>
+			<div class="clear"></div>
 		</section>
-	<!-- /Discover -->
+	<?php endif; ?>
 
-	<!-- Chateaux similaires -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!-- Articles -->
 		<?php 
 		wp_reset_postdata();
@@ -152,7 +196,13 @@
 		if ($the_query->have_posts() ) : 
 			while ($the_query->have_posts() ) : $the_query->the_post();
 				$title = get_the_title();
-				$author = get_the_author(); 
+				$author = get_the_author();
+		if ( has_post_thumbnail() ) {
+			$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+			if ( ! empty( $large_image_url[0] ) ) {
+				$imageurl = $large_image_url[0];
+			}
+		}
 				if($first_actu){
 				?> <section id="home-articles">
 			<div class="header-cards">
@@ -165,7 +215,7 @@
 			</div>
 			<div class="content">
 				<div class="left">
-					<div class="swiper-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+					<div class="swiper-slide" style="background-image: url('<?= esc_url($imageurl); ?>');">
 						<div class="overlay"></div>
 						<div class="main">
 							<div class="content">
@@ -223,7 +273,7 @@
 			}
 			else{
 			?>
-									<div class="banner" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg');">
+									<div class="banner" style="background-image: url('<?= esc_url($imageurl); ?>');">
 							<div class="overlay">
 								<div class="content-banner">
 									<span>
@@ -266,6 +316,10 @@
 </section>
 
 
+
+
+
+
 <div class="clear"></div>
 
 
@@ -298,9 +352,15 @@
 									$description =  get_post_custom_values('description');
 									$short_description = get_short_description($description[0], 60,80);
 									$terms = get_the_terms($post->id, 'regions');
-        							$region = $terms[0]->slug; 
+        							$region = $terms[0]->slug;
+									if ( has_post_thumbnail() ) {
+										$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+										if ( ! empty( $large_image_url[0] ) ) {
+											$imageurl = $large_image_url[0];
+										}
+									}
 				?>
-							<div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+							<div class="swiper-slide event-slide" style="background-image: url('<?= esc_url($imageurl); ?>');">
 							<div class="overlay"></div>
 							<div class="main">
 								<div class="content">
@@ -385,6 +445,13 @@
 			$the_query = new WP_Query( $args );
 			if ($the_query->have_posts() ) : 
 				while ($the_query->have_posts() ) : $the_query->the_post();
+			if ( has_post_thumbnail() ) {
+				$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+				if ( ! empty( $large_image_url[0] ) ) {
+					$imageurl = $large_image_url[0];
+				}
+			}
+
 					$title = get_the_title();
 					$get_commune = get_post_custom_values('commune');
 					$commune = $get_commune[0];
@@ -403,7 +470,7 @@
 				</div>
 				<div class="content">
 					<div class="left">
-						<div class="swiper-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+						<div class="swiper-slide" style="background-image: url('<?= esc_url($imageurl); ?>');">
 							<div class="overlay"></div>
 							<div class="main">
 								<div class="content">
