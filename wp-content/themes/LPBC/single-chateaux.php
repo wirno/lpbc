@@ -128,7 +128,7 @@ $images = get_field('image');
             $main = false;
             $i = 0;
             print('</div>');
-            ?><div class="sided"><div class="left"><img src="<?php $images[0]['url'] ? print($images[0]['url']) : print(''); ?>" alt=""></div>
+            ?><div class="sided"><div class="left"><img src="<?php $images[0]['url'] ? print(esc_url($images[0]['url'])) : print(''); ?>" alt=""></div>
 
                 <?php continue;
                 } elseif($main) {
@@ -231,11 +231,11 @@ $explode_blocLibre = explode("============", $blocLibre);
                <?php } ?>
             </div><div class="right">
                 <div class="top" style="height: 300px;">
-                    <img style="height: 300px;width: 640px;"src="<?php $images[1]['url'] ? print($images[1]['url']) : print(''); ?>" alt="">
+                    <img style="height: 300px;width: 640px;"src="<?php $images[1]['url'] ? print(esc_url($images[1]['url'])) : print(''); ?>" alt="">
                 </div>
                 <div class="bottom">
-                    <div class="left" style="background-image: url('<?php $images[2]['url'] ? print($images[2]['url']) : print(''); ?>');">
-                    </div><div class="right" style="background-image: url('<?php $images[3]['url'] ? print($images[3]['url']) : print(''); ?>');">
+                    <div class="left" style="background-image: url('<?php $images[2]['url'] ? print(esc_url($images[2]['url'])) : print(''); ?>');">
+                    </div><div class="right" style="background-image: url('<?php $images[3]['url'] ? print(esc_url($images[3]['url'])) : print(''); ?>');">
                     </div>
                 </div>
             </div>
@@ -348,12 +348,12 @@ $explode_blocLibre = explode("============", $blocLibre);
 
 
     <!-- Événements -->
-    <section id="castle-events">
+    <section id="castle-events" style = "margin-top: 73px;">
         <div class="header-cards">
     <span>
       <h2>Événements</h2>
       <div class="cta">
-        <a href="">Tout voir</a>
+        <a href="#">Tout voir</a>
       </div>
     </span>
         </div>
@@ -499,7 +499,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                                     <p><?php print($description); ?></p>
 
                                     <div class="cta-discover">
-                                        <a href="#">Découvrir</a>
+                                        <a href="<?php the_permalink(); ?>">Découvrir</a>
                                     </div>
 
                                     <div class="tags">
