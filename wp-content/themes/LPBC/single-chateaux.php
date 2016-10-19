@@ -345,6 +345,8 @@ $explode_blocLibre = explode("============", $blocLibre);
     $the_query = new WP_Query($args);
 
     if ($the_query->have_posts() ) : ?>
+
+
     <!-- Événements -->
     <section id="castle-events">
         <div class="header-cards">
@@ -358,7 +360,15 @@ $explode_blocLibre = explode("============", $blocLibre);
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+                        if ( ! empty( $large_image_url[0] ) ) {
+                            $imageurl = $large_image_url[0];
+                        }
+                    }
+                    ?>
+                    <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
                         <div class="main">
                             <div class="content">
@@ -411,7 +421,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                             </div>
                         </div>
                     </div>
-                <?php endwhile; endif; ?>
+                <?php endwhile; ?>
             </div>
         </div>
         <div class="buttons-slider">
@@ -426,6 +436,7 @@ $explode_blocLibre = explode("============", $blocLibre);
         </div>
         <div class="clear"></div>
     </section>
+    <?php endif; ?>
 
 
 
@@ -461,7 +472,15 @@ $explode_blocLibre = explode("============", $blocLibre);
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php while ($the_query->have_posts() ) : $the_query->the_post(); ?>
-                    <div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+                    <?php
+                    if ( has_post_thumbnail() ) {
+                        $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+                        if ( ! empty( $large_image_url[0] ) ) {
+                            $imageurl = $large_image_url[0];
+                        }
+                    }
+                    ?>
+                    <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
                         <div class="main">
                             <div class="content">
