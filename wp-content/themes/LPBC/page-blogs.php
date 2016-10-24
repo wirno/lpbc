@@ -7,7 +7,7 @@
                 <div class="overlay"></div>
                 <div class="discover-content">
                     <h1>Le blog</h1>
-                    <p>Décourvrir le patrimoine n'a jamais été aussi simple.</p>
+                    <p>Découvrir le patrimoine n'a jamais été aussi simple.</p>
                 </div>
             </div>
             <div class="link">
