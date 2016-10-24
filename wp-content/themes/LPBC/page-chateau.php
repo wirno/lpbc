@@ -316,6 +316,7 @@ foreach ($count_style_post as $key => $value) {
 <!-- /Article -->
 
 <!-- Région à la une -->
+<!--
 <section class="castle-proximity region-map">
 	<div class="left" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map.png');">
 		<div class="overlay"></div>
@@ -327,14 +328,14 @@ foreach ($count_style_post as $key => $value) {
 				</div>
 			</span>
 		</div>
-		<?php for($i = 1; $i <= 3; $i++): ?>
-			<div class="locations location-<?= $i ?>">
+		<?php //for($i = 1; $i <= 3; $i++): ?>
+			<div class="locations location-<?php //print($i); ?>">
 				<svg fill="#edcd89" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
 					<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
 					<path d="M0 0h24v24H0z" fill="none"/>
 				</svg>
 			</div>
-		<?php endfor; ?>
+		<?php //endfor; ?>
 	</div><div class="right location-description location-1-description active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
 	<h3>Île-de-France</h3>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
@@ -373,6 +374,7 @@ foreach ($count_style_post as $key => $value) {
 </div>	
 </div>
 </section>
+-->
 <!-- /Région à la une -->
 </main>
 

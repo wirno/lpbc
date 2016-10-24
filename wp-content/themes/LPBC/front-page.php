@@ -95,6 +95,8 @@
 								$imageurl = $large_image_url[0];
 							}
 						}
+						$term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
+
 						?>
 						<div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
 							<div class="overlay"></div>
@@ -142,7 +144,18 @@
                         c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
                         c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
                       </svg>
-                      <p>Médiéval, Moyen-Age</p>
+						<?php $count_tag = 0; ?>
+						<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
                     </span>
 										</div>
 									</div>
@@ -203,7 +216,8 @@
 				$imageurl = $large_image_url[0];
 			}
 		}
-				if($first_actu){
+		$term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
+		if($first_actu){
 				?> <section id="home-articles">
 			<div class="header-cards">
 				<span>
@@ -258,7 +272,18 @@
 												c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
 												c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
 											</svg>
-											<p><a href="">Blog</a>, <a href="">Moyen-Age</a></p>
+											<?php $count_tag = 0; ?>
+											<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
 										</span>
 									</div>
 								</div>
@@ -300,7 +325,18 @@
 												c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
 												c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
 											</svg>
-											<p><a href="">Blog</a>, <a href="">Moyen-Age</a></p>
+											<?php $count_tag = 0; ?>
+											<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
 										</span>
 									</div>
 								</div>
@@ -359,7 +395,9 @@
 											$imageurl = $large_image_url[0];
 										}
 									}
-				?>
+									$term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
+
+									?>
 							<div class="swiper-slide event-slide" style="background-image: url('<?= esc_url($imageurl); ?>');">
 							<div class="overlay"></div>
 							<div class="main">
@@ -404,7 +442,19 @@
 														c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
 														c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
 													</svg>
-													<p>Evenements, Moyen-Age</p>
+													<?php $count_tag = 0; ?>
+													<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
+
 												</span>
 											</div>
 										</div>
@@ -451,8 +501,10 @@
 					$imageurl = $large_image_url[0];
 				}
 			}
+			$term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
 
-					$title = get_the_title();
+
+			$title = get_the_title();
 					$get_commune = get_post_custom_values('commune');
 					$commune = $get_commune[0];
 					$terms = get_the_terms($post->id, 'regions');
@@ -518,7 +570,18 @@
 														c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
 														c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
 													</svg>
-													<p><a href="">Monument & Musée</a>, <a href="">Moyen-Age</a></p>
+													<?php $count_tag = 0; ?>
+													<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
 												</span>
 											</div>
 										</div>
@@ -558,7 +621,18 @@
 												c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
 												c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
 											</svg>
-											<p><a href="">Monument & Musée</a>, <a href="">Moyen-Age</a></p>
+											<?php $count_tag = 0; ?>
+											<p>
+	<?php foreach ($term_list as $key => $value) {
+		$count = count($term_list);
+		if($count_tag == $count -1) {
+			print($value);
+		} else {
+			print($value . ', ');
+		}
+		$count_tag++;
+	} ?>
+</p>
 										</span>
 									</div>
 								</div>
@@ -577,6 +651,7 @@
 
 
 				<!-- Région à la une -->
+<!--
 				<section class="castle-proximity region-map region-home">
 					<div class="left" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map.png');">
 						<div class="overlay"></div>
@@ -588,14 +663,14 @@
 								</div>
 							</span>
 						</div>
-						<?php for($i = 1; $i <= 3; $i++): ?>
-							<div class="locations location-<?= $i ?>">
+						<?php //for($i = 1; $i <= 3; $i++): ?>
+							<div class="locations location-<?php //print($i); ?>">
 								<svg fill="#edcd89" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
 									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
 									<path d="M0 0h24v24H0z" fill="none"/>
 								</svg>
 							</div>
-						<?php endfor; ?>
+						<?php //endfor; ?>
 					</div><div class="right location-description location-1-description active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
 					<h3>Île-de-France</h3>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
@@ -634,6 +709,7 @@
 			</div>	
 		</div>
 	</section>
+	-->
 	<!-- /Région à la une -->
 
 	<!-- Libre -->

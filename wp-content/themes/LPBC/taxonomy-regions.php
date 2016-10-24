@@ -368,6 +368,7 @@ $mmh_list = [];
                                 }
                                 $count_tag++;
                               } ?>
+                        </p>
                           </span>
                     </div>
                   </div>
@@ -469,6 +470,7 @@ $mmh_list = [];
                               }
                               $count_tag++;
                             } ?>
+                        </p>
                         </span>
                     </div>
                   </div>

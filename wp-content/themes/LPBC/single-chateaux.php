@@ -367,6 +367,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                             $imageurl = $large_image_url[0];
                         }
                     }
+                    $term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
                     ?>
                     <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
@@ -414,7 +415,18 @@ $explode_blocLibre = explode("============", $blocLibre);
                         c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
                         c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
                       </svg>
-                      <p>Médiéval, Moyen-Age</p>
+                        <?php $count_tag = 0; ?>
+                        <p>
+	<?php foreach ($term_list as $key => $value) {
+        $count = count($term_list);
+        if($count_tag == $count -1) {
+            print($value);
+        } else {
+            print($value . ', ');
+        }
+        $count_tag++;
+    } ?>
+</p>
                     </span>
                                     </div>
                                 </div>
@@ -479,6 +491,7 @@ $explode_blocLibre = explode("============", $blocLibre);
                             $imageurl = $large_image_url[0];
                         }
                     }
+                    $term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
                     ?>
                     <div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
                         <div class="overlay"></div>
@@ -526,7 +539,18 @@ $explode_blocLibre = explode("============", $blocLibre);
                           c2.4,0,4.9-0.9,6.7-2.8l45.3-45.2c1.8-1.8,2.8-4.2,2.8-6.7v-35.6C-99,192.3-103.3,188.1-108.5,188.1z M-127.7,228.8
                           c-6.6,0-12-5.4-12-12c0-6.6,5.4-12,12-12c6.6,0,12,5.4,12,12C-115.7,223.4-121.1,228.8-127.7,228.8z"/>
                         </svg>
-                        <p>Médiéval, Moyen-Age</p>
+                          <?php $count_tag = 0; ?>
+                          <p>
+	<?php foreach ($term_list as $key => $value) {
+        $count = count($term_list);
+        if($count_tag == $count -1) {
+            print($value);
+        } else {
+            print($value . ', ');
+        }
+        $count_tag++;
+    } ?>
+</p>
                       </span>
                                     </div>
                                 </div>
