@@ -54,7 +54,7 @@
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'regions' ) ) ?>">Régions</a></li>
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'evenement' ) ) ?>">Événements</a></li>
 							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'monument-musee' ) ) ?>">Monuments & Musées </a></li>
-							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'blog' ) ) ?>">Blog</a></li>
+							<li class="nav-item"><a href="<?= get_permalink( get_page_by_title( 'blogs' ) ) ?>">Blog</a></li>
 							<li class="nav-item search-input"><form role="s" method="get" id="searchform" action="<?= get_home_url(); ?>"><input type="text" name="s" placeholder="RECHERCHE"></form></li>
 						</ul>
 					</div>

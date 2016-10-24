@@ -1,26 +1,87 @@
 <?php get_header(); ?>
 
+<?php
+
+
+$terms = get_terms('style', array('hide_empty' => false));
+$count_style_post = [];
+if($terms){
+	foreach ($terms as $key => $value) {
+		$args = array(
+			'post_type' => 'chateaux',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'style',
+					'field'    => 'slug',
+					'terms'    => $value->slug
+				)
+			)
+		);
+		$chateau_query = new WP_Query($args);
+		$count_style_post[$value->slug] = array(
+			'chateau'=>$chateau_query->post_count
+		);
+	}
+}
+$total_style = 0;
+foreach ($count_style_post as $key => $value) {
+	$total_style += $value['chateau'];
+}
+
+
+
+    $args = array(
+		'post_type' => 'chateaux',
+		'orderby'=>'asc',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'tag',
+				'field'    => 'slug',
+				'terms'    => 'a-la-une'
+			)
+		)
+	);
+
+	$the_query = new WP_Query( $args );
+	if ($the_query->have_posts() ) :
+		while ($the_query->have_posts() ) : $the_query->the_post();
+			if ( has_post_thumbnail() ) {
+				$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+				if ( ! empty( $large_image_url[0] ) ) {
+					$imageurl = $large_image_url[0];
+				}
+			}
+			$description = get_post_custom_values('description');
+			$short_description = get_short_description($description[0], 60, 80);
+
+
+
+
+?>
 <main id="main" role="main">
 	<!-- Recherche châteaux -->
 	<section id="castle-search-header" class="search-result-header header-global">
-		<div class="home-main" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/Esclimont.jpg');">
+		<div class="home-main" style="background-image: url('<?= esc_url($imageurl); ?>');">
 			<div class="overlay"></div>
 			<div class="discover-content">
-				<h1>Découvrez le Château d'Esclimont</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet 
-					sed eu felis.
-				</p>
+				<h1>Découvrez <?php the_title(); ?></h1>
+				<p><?php print($short_description); ?></p>
+
 			</div>
 		</div>
 		<div class="link">
 			<span>
-				<p>Image : Châteaux d'Esclimont</p>
+				<p>Image : <?php the_title(); ?></p>
 				<div class="cta">
 					<a href="http://lpbc.dev/chateaux/chateau-desclimont/">Voir</a>
 				</div>
 			</span>
 		</div>
 	</section>
+	<?php
+		endwhile;
+	endif;
+	?>
 	<!-- /Recherche châteaux -->
 
 	<!-- Populaires -->
@@ -29,10 +90,12 @@
 			<span>
 				<h2>Styles populaires</h2>
 				<ul>
-					<li><a class="active" href="">Gothique</a> <span>0</span></li>
-					<li><a href="">Médiéval</a> <span>2</span></li>
-					<li><a href="">Néo-gothique</a> <span>1</span></li>
-					<li><a href="">Renaissance</a> <span>3</span></li>
+					<?php foreach ($count_style_post as $key => $value) {
+						if($value['chateau'] != 0) { ?>
+					<li><a class="active" href=""><?php print($key); ?></a> <span><?php print($value['chateau']); ?></span></li>
+					<?php
+						}
+					} ?>
 				</ul>
 			</span>
 		</div>
@@ -91,35 +154,7 @@
 					?>
 				</div>
 
-				<?php
 
-
-				$terms = get_terms('style', array('hide_empty' => false));
-				$count_style_post = [];
-				if($terms){
-					foreach ($terms as $key => $value) {
-						$args = array(
-							'post_type' => 'chateaux',
-							'tax_query' => array(
-								array(
-									'taxonomy' => 'style',
-									'field'    => 'slug',
-									'terms'    => $value->slug
-									)
-								)
-							);
-						$chateau_query = new WP_Query($args);
-						$count_style_post[$value->slug] = array(
-							'chateau'=>$chateau_query->post_count
-							);
-					}
-				}
-				$total_style = 0;
-				foreach ($count_style_post as $key => $value) {
-					$total_style += $value['chateau'];
-				}
-
-				?>
 				<div class="filter-button">
 					<p class="left">Styles</p>
 					<p class="right"><?php print($total_style); ?></p>
@@ -213,8 +248,14 @@
 			$terms_region = wp_get_post_terms($post->ID, 'regions', array("fields" => "all"));
 			$terms_style = wp_get_post_terms($post->ID, 'style', array("fields" => "all"));
 			$terms_epoque = wp_get_post_terms($post->ID, 'epoque', array("fields" => "all"));
+			if ( has_post_thumbnail() ) {
+				$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+				if ( ! empty( $large_image_url[0] ) ) {
+					$imageurl = $large_image_url[0];
+				}
+			}
 			?>
-			<div class="mix category-<?php print($terms_region[0]->slug);?> category-<?php print($terms_style[0]->slug);?> category-<?php print($terms_epoque[0]->slug);?>"  style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/main_castle.jpg');">
+			<div class="mix category-<?php print($terms_region[0]->slug);?> category-<?php print($terms_style[0]->slug);?> category-<?php print($terms_epoque[0]->slug);?>"  style="background-image: url('<?= esc_url($imageurl); ?>');">
 
 				<div class="overlay"></div>
 				<div class="card-container">
