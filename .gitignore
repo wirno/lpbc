@@ -110,3 +110,5 @@ Temporary Items
 .apdisk
 
 wp-config.php
+
+database_prod.sql.gz
