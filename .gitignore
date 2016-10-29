@@ -111,4 +111,4 @@ Temporary Items
 
 wp-config.php
 
-database_prod.sql.gz
+database_dev.sql.gz
