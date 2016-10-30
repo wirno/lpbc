@@ -39,7 +39,7 @@
                             if($terms){
                                 foreach ($terms as $key => $value) {
                                     $args = array(
-                                        'post_type' => 'monuments-et-musees',
+                                        'post_type' => 'monument-et-musee',
                                         'tax_query' => array(
                                             array(
                                                 'taxonomy' => 'regions',
@@ -85,7 +85,7 @@
                         if($terms){
                             foreach ($terms as $key => $value) {
                                 $args = array(
-                                    'post_type' => 'monuments-et-musees',
+                                    'post_type' => 'monument-et-musee',
                                     'tax_query' => array(
                                         array(
                                             'taxonomy' => 'style',
@@ -142,7 +142,7 @@
                         if($terms){
                             foreach ($terms as $key => $value) {
                                 $args = array(
-                                    'post_type' => 'monuments-et-musees',
+                                    'post_type' => 'monument-et-musee',
                                     'tax_query' => array(
                                         array(
                                             'taxonomy' => 'epoque',
@@ -190,7 +190,7 @@
                     <div id="Container">
                         <?php
                         $args= array(
-                            'post_type' =>'monuments-et-musees',
+                            'post_type' =>'monument-et-musee',
                             'orderby'=>'asc'
                         );
                         $the_query = new WP_Query( $args );

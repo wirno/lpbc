@@ -8,7 +8,7 @@ $count_style_post = [];
 if($terms){
 	foreach ($terms as $key => $value) {
 		$args = array(
-			'post_type' => 'chateaux',
+			'post_type' => 'chateau',
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'style',
@@ -31,7 +31,7 @@ foreach ($count_style_post as $key => $value) {
 
 
     $args = array(
-		'post_type' => 'chateaux',
+		'post_type' => 'chateau',
 		'orderby'=>'asc',
 		'tax_query' => array(
 			array(
@@ -116,7 +116,7 @@ foreach ($count_style_post as $key => $value) {
 						if($terms){
 							foreach ($terms as $key => $value) {
 								$args = array(
-									'post_type' => 'chateaux',
+									'post_type' => 'chateau',
 									'tax_query' => array(
 										array(
 											'taxonomy' => 'regions',
@@ -191,7 +191,7 @@ foreach ($count_style_post as $key => $value) {
 				if($terms){
 					foreach ($terms as $key => $value) {
 						$args = array(
-							'post_type' => 'chateaux',
+							'post_type' => 'chateau',
 							'tax_query' => array(
 								array(
 									'taxonomy' => 'epoque',
@@ -239,7 +239,7 @@ foreach ($count_style_post as $key => $value) {
 		<div id="Container">
 			<?php 
 			$args= array(
-				'post_type' =>'chateaux',
+				'post_type' =>'chateau',
 				'orderby'=>'asc'
 				);
 			$the_query = new WP_Query( $args );
@@ -319,7 +319,7 @@ foreach ($count_style_post as $key => $value) {
 <?php 
 $terms_castle_region =array();
     $args = array(
-        'post_type' => 'chateaux',
+        'post_type' => 'chateau',
     );
     $the_query = new WP_Query($args);
 
@@ -376,7 +376,7 @@ foreach ($top_region as $key => $value) {
 	endif;
 
 	$args = array(
-        'post_type' => 'evenements',
+        'post_type' => 'evenement',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',
@@ -390,7 +390,7 @@ foreach ($top_region as $key => $value) {
 
 
 	$args = array(
-        'post_type' => 'monuments-et-musees',
+        'post_type' => 'monument-et-musee',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',
