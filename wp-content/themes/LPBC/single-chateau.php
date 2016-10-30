@@ -333,7 +333,7 @@ $explode_blocLibre = explode("============", $blocLibre);
 
     <?php
     $args = array(
-        'post_type' => 'evenements',
+        'post_type' => 'evenement',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',
@@ -460,7 +460,7 @@ $explode_blocLibre = explode("============", $blocLibre);
 
     <?php
     $args = array(
-        'post_type' => 'monuments-et-musees',
+        'post_type' => 'monument-et-musee',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',

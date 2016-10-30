@@ -27,7 +27,7 @@
 		$terms = get_terms('regions', array('hide_empty' => false));
 		foreach ($terms as $key => $value) {
 			$args = array(
-				'post_type' => 'evenements',
+				'post_type' => 'evenement',
 				'posts_per_page' => 1,
 				'tax_query' => array(
 					array(
@@ -140,7 +140,7 @@
 
 					<?php 		
 					$args = array(
-						'post_type' => 'evenements',
+						'post_type' => 'evenement',
 						'posts_per_page' => -1
 						);
 					$the_query = new WP_Query($args);
@@ -263,15 +263,16 @@
 
 						<?php 
 						$terms = get_terms('regions', array('hide_empty' => false));
-						foreach ($terms as $key => $value) {
+
+						foreach ($terms as $key => $region_value) {
 							$args = array(
-								'post_type' => 'evenements',
+								'post_type' => 'evenement',
 								'posts_per_page' =>-1,
 								'tax_query' => array(
 									array(
 										'taxonomy' => 'regions',
 										'field'    => 'slug',
-										'terms'    => $value->slug
+										'terms'    => $region_value->slug
 
 										)
 									)
@@ -280,13 +281,19 @@
 							if ($the_query->have_posts() ) : 
 								while ($the_query->have_posts() ) : $the_query->the_post();
 									$term_list = wp_get_post_terms($post->ID, 'tag', array("fields" => "names"));
+								if ( has_post_thumbnail() ) {
+								$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+								if ( ! empty( $large_image_url[0] ) ) {
+									$imageurl = $large_image_url[0];
+								}
+							}
 									?>
-							<div class="swiper-slide event-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/chateau-une.png');">
+							<div class="swiper-slide event-slide" style="background-image: url('<?php $imageurl ? print($imageurl) : print(''); ?>');">
 								<div class="overlay"></div>
 								<div class="main">
 									<div class="content">
 										<div class="main">
-											<h4><?php print($value->name); ?></h4>
+											<h4><?php print($region_value->name); ?></h4>
 											<span class="location">
 												<svg fill="#f2d374" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
 													<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>

@@ -5,7 +5,7 @@
 	<?php 
 
     $args = array(
-		'post_type' => 'chateaux',
+		'post_type' => 'chateau',
 		'orderby'=>'asc',
 		'tax_query' => array(
 			array(
@@ -61,7 +61,7 @@
 
 	<?php
 	$args = array(
-		'post_type' => 'chateaux',
+		'post_type' => 'chateau',
 		'orderby'=>'asc',
 		'tax_query' => array(
 			array(
@@ -376,7 +376,7 @@
 				<?php 
 					wp_reset_postdata();
 					$args= array(
-						'post_type' =>'evenements',
+						'post_type' =>'evenement',
 						'posts_per_page'=>5,
 						'orderby'=>'asc'
 					);
@@ -487,7 +487,7 @@
 			<?php 
 				wp_reset_postdata();
 				$args= array(
-					'post_type' =>'monuments-et-musees',
+					'post_type' =>'monument-et-musee',
 					'posts_per_page'=>5,
 					'orderby'=>'asc'
 				);
@@ -654,7 +654,7 @@
 <?php 
 $terms_castle_region =array();
     $args = array(
-        'post_type' => 'chateaux',
+        'post_type' => 'chateau',
     );
     $the_query = new WP_Query($args);
 
@@ -711,7 +711,7 @@ foreach ($top_region as $key => $value) {
 	endif;
 
 	$args = array(
-        'post_type' => 'evenements',
+        'post_type' => 'evenement',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',
@@ -725,7 +725,7 @@ foreach ($top_region as $key => $value) {
 
 
 	$args = array(
-        'post_type' => 'monuments-et-musees',
+        'post_type' => 'monument-et-musee',
         'tax_query' => array(
             array(
                 'taxonomy' => 'regions',

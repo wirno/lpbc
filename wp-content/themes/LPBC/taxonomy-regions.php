@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php $terms = get_query_var( 'term' ); ?>
 <?php $args = array(
-    'post_type' => 'chateaux',
+    'post_type' => 'chateau',
     'tax_query' => array(
         array(
             'taxonomy' => 'regions',
@@ -16,7 +16,7 @@ wp_reset_query();
 ?>
 
 <?php $args = array(
-    'post_type' => 'evenements',
+    'post_type' => 'evenement',
     'tax_query' => array(
         array(
             'taxonomy' => 'regions',
@@ -31,7 +31,7 @@ wp_reset_query();
 ?>
 
 <?php $args = array(
-    'post_type' => 'monuments-et-musees',
+    'post_type' => 'monument-et-musee',
     'tax_query' => array(
         array(
             'taxonomy' => 'regions',
@@ -125,7 +125,7 @@ $mmh_list = [];
     </section>
     <div class="clear"></div>
     <!-- /Description -->
-    <?php elseif($posttype == 'evenements') : ?>
+    <?php elseif($posttype == 'evenement') : ?>
       <?php $title = get_the_title(); ?>
       <?php $description = get_post_custom_values('description'); ?>
       <?php $short_description = get_short_description($description[0],60,80); ?>
@@ -151,7 +151,7 @@ $mmh_list = [];
       ); ?>
 
 
-    <?php elseif($posttype == 'monuments-et-musees') : ?>
+    <?php elseif($posttype == 'monument-et-musee') : ?>
       <?php $title = get_the_title(); ?>
       <?php $description = get_post_custom_values('description'); ?>
       <?php $short_description = get_short_description($description[0],60,80); ?>

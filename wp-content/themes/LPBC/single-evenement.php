@@ -111,7 +111,7 @@ $lattitude = ConvertDMSToDD($data['lat']);
 
 <?php
 $args = array(
-    'post_type' => 'evenements',
+    'post_type' => 'evenement',
     'tax_query' => array(
         array(
             'taxonomy' => 'regions',
@@ -236,7 +236,7 @@ if ($the_query->have_posts() ) : ?>
 
 <?php
 $args = array(
-    'post_type' => 'chateaux',
+    'post_type' => 'chateau',
     'tax_query' => array(
         array(
             'taxonomy' => 'regions',

@@ -40,7 +40,7 @@
                             if($terms){
                                 foreach ($terms as $key => $value) {
                                     $args = array(
-                                        'post_type' => 'evenements',
+                                        'post_type' => 'evenement',
                                         'tax_query' => array(
                                             array(
                                                 'taxonomy' => 'regions',
@@ -85,7 +85,7 @@
                     <div id="Container">
                         <?php
                         $args= array(
-                            'post_type' =>'evenements',
+                            'post_type' =>'evenement',
                             'orderby'=>'asc'
                         );
                         $the_query = new WP_Query( $args );

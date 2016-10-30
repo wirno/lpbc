@@ -106,7 +106,7 @@ while (have_posts()) : the_post();
 
         <?php
         $args = array(
-            'post_type' => 'monuments-et-musees',
+            'post_type' => 'monument-et-musee',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'regions',
@@ -231,7 +231,7 @@ while (have_posts()) : the_post();
 
         <?php
         $args = array(
-            'post_type' => 'chateaux',
+            'post_type' => 'chateau',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'regions',

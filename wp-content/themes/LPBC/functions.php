@@ -20,7 +20,7 @@ add_action('init', 'create_custom_post_type');
 add_action('init', 'create_custom_taxonomy');
 
 function create_custom_post_type(){
-    register_post_type('chateaux',array(
+    register_post_type('chateau',array(
         'labels'=>array(
             'name'=>__('Chateaux'),
             'all_items'=>('Tous les châteaux'),
@@ -34,7 +34,7 @@ function create_custom_post_type(){
     ));
 
 
-    register_post_type('evenements',array(
+    register_post_type('evenement',array(
         'labels'=>array(
             'name'=>__('Evenements'),
             'all_items'=>('Tous les événements'),
@@ -60,7 +60,7 @@ function create_custom_post_type(){
         'has_archive'=>true
     ));
 
-    register_post_type('monuments-et-musees',array(
+    register_post_type('monument-et-musee',array(
         'labels'=>array(
             'name'=>__('Monuments et musées'),
             'all_items'=>('Tous les monuments et musées'),
@@ -131,7 +131,7 @@ register_post_type('wishlist',array(
 function create_custom_taxonomy(){
     register_taxonomy(
         'regions',
-        array('chateaux','monuments-et-musees','region','evenements','blog'),
+        array('chateau','monument-et-musee','region','evenement','blog'),
         array(
             'label'=>__('regions'),
             'hierarchical'=>true,
@@ -139,7 +139,7 @@ function create_custom_taxonomy(){
 
     register_taxonomy(
         'epoque',
-        array('chateaux','monuments-et-musees'),
+        array('chateau','monument-et-musee'),
         array(
             'label'=>__('epoque'),
             'hierarchical'=>true,
@@ -147,7 +147,7 @@ function create_custom_taxonomy(){
 
     register_taxonomy(
         'style',
-        array('chateaux','monuments-et-musees'),
+        array('chateau','monument-et-musee'),
         array(
             'label'=>__('style'),
             'hierarchical'=>true,
@@ -155,7 +155,7 @@ function create_custom_taxonomy(){
 
     register_taxonomy(
         'roi',
-        array('chateaux'),
+        array('chateau'),
         array(
             'label'=>__('roi'),
             'hierarchical'=>true,
@@ -163,7 +163,7 @@ function create_custom_taxonomy(){
 
     register_taxonomy(
         'tag',
-        array('chateaux','monuments-et-musees','region','evenements','blog','wishlist','anecdotes'),
+        array('chateau','monument-et-musee','region','evenement','blog','wishlist','anecdotes'),
         array(
             'label'=>__('tag'),
             'hierarchical'=>true,
