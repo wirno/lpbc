@@ -316,10 +316,95 @@ foreach ($count_style_post as $key => $value) {
 <!-- /Article -->
 
 <!-- Région à la une -->
-<!--
+<?php 
+$terms_castle_region =array();
+    $args = array(
+        'post_type' => 'chateaux',
+    );
+    $the_query = new WP_Query($args);
+
+
+
+if ($the_query->have_posts() ) :
+
+    while ($the_query->have_posts() ) : $the_query->the_post();
+
+	$term_list = wp_get_post_terms($post->ID, 'regions', array("fields" => "all"));
+
+	if(array_key_exists($term_list[0]->slug, $terms_castle_region)){
+		$terms_castle_region[$term_list[0]->slug] +=1;
+	} else {
+		$terms_castle_region[$term_list[0]->slug] = 0;
+	}
+	endwhile;
+endif;
+arsort($terms_castle_region);
+$top_region = array_slice($terms_castle_region,0,3);
+
+$array_coor = array();
+foreach ($top_region as $key => $value) {
+	$args = array(
+        'post_type' => 'region',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'regions',
+                'field'    => 'slug',
+                'terms'    => $key
+            )
+        )
+    );
+    $the_query = new WP_Query($args);
+	if ($the_query->have_posts() ) :
+	    while ($the_query->have_posts() ) : $the_query->the_post();
+            $coor = get_post_custom_values('coordonnee');
+            $array_region_data[$key] = array(
+            	'coor'=>$coor[0],
+            	'castle' => $value
+            	);
+
+        if ( has_post_thumbnail() ) {
+            $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+            if ( ! empty( $large_image_url[0] ) ) {
+                $array_region_data[$key]['image'] = $large_image_url[0];
+            }
+        }
+
+        $description = get_post_custom_values('description');
+        $short_description = get_short_description($description[0], 60, 80);
+        $array_region_data[$key]['description'] = $short_description;
+		endwhile;
+	endif;
+
+	$args = array(
+        'post_type' => 'evenements',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'regions',
+                'field'    => 'slug',
+                'terms'    => $key
+            )
+        )
+    );
+    $the_query = new WP_Query($args);
+    $array_region_data[$key]['event'] = (int)$the_query->post_count;
+
+
+	$args = array(
+        'post_type' => 'monuments-et-musees',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'regions',
+                'field'    => 'slug',
+                'terms'    => $key
+            )
+        )
+    );
+    $the_query = new WP_Query($args);
+	$array_region_data[$key]['mmh'] = (int)$the_query->post_count;
+}
+?>
 <section class="castle-proximity region-map">
-	<div class="left" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map.png');">
-		<div class="overlay"></div>
+	<div class="left" id="map-region">
 		<div class="header-cards">
 			<span>
 				<h2>Régions à la une</h2>
@@ -328,55 +413,83 @@ foreach ($count_style_post as $key => $value) {
 				</div>
 			</span>
 		</div>
-		<?php //for($i = 1; $i <= 3; $i++): ?>
-			<div class="locations location-<?php //print($i); ?>">
-				<svg fill="#edcd89" height="50" viewBox="0 0 24 24" width="50" xmlns="http://www.w3.org/2000/svg">
-					<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-					<path d="M0 0h24v24H0z" fill="none"/>
-				</svg>
-			</div>
-		<?php //endfor; ?>
-	</div><div class="right location-description location-1-description active" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
-	<h3>Île-de-France</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
-	<ul>
-		<li>30 châteaux</li>
-		<li>21 monuments</li>
-		<li>27 musées</li>
-		<li>4 événements</li>
-	</ul>
-	<div class="cta-discover">
-		<a href="#">Découvrir</a>
-	</div>	
-</div><div class="right location-description location-2-description" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
-<h3>Région 2</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
-<ul>
-	<li>30 châteaux</li>
-	<li>21 monuments</li>
-	<li>27 musées</li>
-	<li>4 événements</li>
-</ul>
-<div class="cta-discover">
-	<a href="#">Découvrir</a>
-</div>	
-</div><div class="right location-description location-3-description" style="background-image: url('<?php echo get_template_directory_uri(); ?>/img/map-custom.png');">
-<h3>Région 3</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse iaculis ante non eros convallis imperdiet sed eu felis.</p>
-<ul>
-	<li>30 châteaux</li>
-	<li>21 monuments</li>
-	<li>27 musées</li>
-	<li>4 événements</li>
-</ul>
-<div class="cta-discover">
-	<a href="#">Découvrir</a>
-</div>	
-</div>
-</section>
--->
+	</div>
+				<?php 
+					$active = true;
+					foreach ($array_region_data as $key => $value) {
+						if($active){
+							?><div class="right location-description location-1-description active" style="background-image: url('<?= esc_url($value['image']); ?>');" data-region= <?php print($key); ?>>
+							<?php $active = false;
+						}
+						else{
+							?><div class="right location-description location-1-description" style="background-image: url('<?= esc_url($value['image']); ?>');" data-region=<?php print($key); ?>>
+							<?php } ?>
+					<h3><?php print($key); ?></h3>
+					<p><?php print($value['description']); ?></p>
+					<ul>
+						<li><?php print($value['castle']); ?> châteaux</li>
+						<li><?php print($value['mmh']); ?> monuments et musées</li>
+						
+						<li><?php print($value['event']); ?> événements</li>
+					</ul>
+					<div class="cta-discover">
+						<a href="#">Découvrir</a>
+					</div>	
+				</div>
+					<?php } ?>
+	</section>
+
 <!-- /Région à la une -->
 </main>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdvOlziA7luvB_ViQePNMTuPIMIWVaTms&libraries=places">
+</script>
+<script>
+    function initialize_map_1() {
+        var myLatLng = {lat: 47.211783, lng: 2.508676};
 
+		var map = new google.maps.Map(document.getElementById('map-region'), {
+		    zoom: 6,
+		    center: myLatLng
+		});
+
+
+		<?php
+		foreach ($array_region_data as $key => $value) {
+			$data = DMStoDD($value['coor']);
+    		$longitude = ConvertDMSToDD($data['long']);
+    		$lattitude = ConvertDMSToDD($data['lat']); ?>
+    		var regionMarker = new google.maps.LatLng(<?php print($lattitude); ?>, <?php print($longitude); ?>);
+
+
+		var marker = new google.maps.Marker({
+		    position: regionMarker,
+		    map: map,
+		    title: <?php print('"' . $key . '"');?>
+		  });
+
+		attachEventMarker(marker);
+
+
+		<?php } ?>
+
+		}
+
+		function attachEventMarker(marker) {
+        marker.addListener('click', function() {
+        	console.log(marker.title);
+	    		$('.location-description.active').stop().fadeOut(400, function() {
+	    			$(this).removeClass('active');
+	    			$('[data-region="' + marker.title +'"]').stop().fadeIn().addClass('active');
+	    		});  	
+	    });
+        }
+    
+    
+
+
+    initialize_map_1();
+    google.maps.event.addDomListener(window, 'load', initialize_map_1);
+</script>
 <?php
 get_footer();
