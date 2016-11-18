@@ -92,8 +92,6 @@ if( $the_query->have_posts() ) {
 		}
 	}
 	endwhile;
-	var_dump($unique_users_wishlist);
-
 }
 
 

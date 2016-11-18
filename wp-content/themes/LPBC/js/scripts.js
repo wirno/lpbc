@@ -4,7 +4,7 @@ window.onload = function () {
 		// HEADER
 		// Dropdown language
 		$('.dropdown-wrapper').click(function() {
-			$('.dropdown-button').toggleClass('active');
+			$(this).children('.dropdown-button').toggleClass('active');
 		});
 
 		// SLIDERS HOME
