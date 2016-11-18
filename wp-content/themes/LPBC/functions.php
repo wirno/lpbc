@@ -13,7 +13,6 @@
 require_once('include/DMStoDD.php');
 require_once('include/next_taxo.php');
 require_once('include/short_description.php');
-require_once('include/wishlist.php');
 require_once('include/dompdf/autoload.inc.php');
 add_theme_support('post-thumbnails');
 add_action('init', 'create_custom_post_type');
