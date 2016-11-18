@@ -192,7 +192,7 @@ window.onload = function () {
 
 	    // Chrome autofill + FORM
 	    $('.button-form').click(function() {
-	    	$('.button-hidden').click();
+	    	$(this).parent().prev('form').find('.button-hidden').click();
 	    });
 
 	    if ($.browser) {

@@ -43,7 +43,11 @@
 								</div>
 							</div>
 							<div class="settings-button connection-wrapper">
-								<a class="connection" href="#modal-connection">Connexion</a>
+							<?php if (is_user_logged_in()) { ?>
+							    <a class="connection" href="<?php echo wp_logout_url( home_url() ); ?>">deconnexion</a>
+							<?php } else { ?>
+							    <a class="connection" href="#modal-connection">Connexion</a>
+							<?php } ?>
 							</div>
 						</div>
 					</div>
