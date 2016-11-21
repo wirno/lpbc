@@ -13,7 +13,6 @@
 require_once('include/DMStoDD.php');
 require_once('include/next_taxo.php');
 require_once('include/short_description.php');
-require_once('include/wishlist.php');
 require_once('include/dompdf/autoload.inc.php');
 add_theme_support('post-thumbnails');
 add_action('init', 'create_custom_post_type');
@@ -174,6 +173,335 @@ function create_custom_taxonomy(){
 /*------------------------------------*\
 	Theme Support
 \*------------------------------------*/
+function ajax_login_init(){
+
+    wp_register_script('ajax-login-script', get_template_directory_uri() . '/js/ajax-login-script.js', array('jquery') ); 
+    wp_enqueue_script('ajax-login-script');
+
+    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array( 
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'redirecturl' => home_url(),
+        'loadingmessage' => __('Sending user info, please wait...')
+    ));
+
+    // Enable the user with no privileges to run ajax_login() in AJAX
+    add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
+}
+
+// Execute the action only if the user isn't logged in
+if (!is_user_logged_in()) {
+    add_action('init', 'ajax_login_init');
+}
+
+
+
+function ajax_login(){
+
+    // First check the nonce, if it fails the function will break
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+
+    // Nonce is checked, get the POST data and sign user on
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+    } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
+    }
+
+    die();
+}
+
+
+
+
+
+function add_js_scripts_signup() {
+    wp_enqueue_script( 'script-signup', get_template_directory_uri().'/js/ajax-signup-script.js', array('jquery'));
+
+    // pass Ajax Url to script.js
+    wp_localize_script( 'script-signup', 'ajax_signup_object', array( 
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'redirecturl' => home_url(),
+        'loadingmessage' => __('Sending user info, please wait...')
+    ));
+
+    add_action( 'wp_ajax_signup', 'signup' );
+    add_action( 'wp_ajax_nopriv_signup', 'signup' );
+}
+add_action('init', 'add_js_scripts_signup');
+
+
+
+function signup() {
+    // Nonce is checked, get the POST data and sign user on
+    $info = array();
+    $info['user_login'] = sanitize_user($_POST['username']);
+    $info['user_pass'] = sanitize_text_field($_POST['password']);
+    $info['user_email'] = sanitize_email( $_POST['email']);
+    $info['remember'] = true;
+    $mdp_conf = sanitize_text_field($_POST['password_conf']);
+
+    if($mdp_conf === $info['user_pass']){
+        if($info['user_login'] && $info['user_email']){
+            $user_register = wp_insert_user( $info );
+        }
+    }
+    if ( is_wp_error($user_register) ){
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+    } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
+    }
+
+    die();
+}
+
+
+
+
+
+function add_js_scripts_fav() {
+    wp_enqueue_script( 'fav-script', get_template_directory_uri().'/js/fav.js', array('jquery'));
+
+    // pass Ajax Url to script.js
+        wp_localize_script( 'fav-script', 'ajax_fav_object', array( 
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    ));
+
+    add_action( 'wp_ajax_manage_fav', 'manage_fav' );
+    add_action( 'wp_ajax_nopriv_manage_fav', 'manage_fav' );
+}
+add_action('init', 'add_js_scripts_fav');
+
+
+
+function manage_fav() {
+
+    if ( isset($_POST['postID']) && !empty($_POST['postID'])) {
+        $current_post_id = $_POST['postID'];
+        $current_user_id = get_current_user_id();
+
+        // je test si la wishlist existe déja
+        // si c'est le cas on enleve le tuple
+        // si c'est pas le cas, c'est que il n'est pas déja dans la wishlist et on peut l'ajouter
+        $args = array(
+            'numberposts'   => -1,
+            'post_type'     => 'wishlist',
+            'meta_query'    => array(
+                'relation'      => 'AND',
+                array(
+                    'key'       => 'fav_wishlist',
+                    'value'     => false,
+                    'compare'   => '='
+                ),
+                array(
+                    'key'       => 'id_auteur',
+                    'value'     => $current_user_id,
+                    'compare'   => '='
+                ),
+                array(
+                    'key'       => 'post_id',
+                    'value'     => $current_post_id,
+                    'compare'   => '='
+                )
+            )
+        );
+
+        $the_query = new WP_Query( $args );
+
+        if( $the_query->have_posts() ) {
+            while ($the_query->have_posts() ) : $the_query->the_post();
+            $loop_post_id = get_the_ID();
+            endwhile;
+            $post_id = wp_delete_post( $loop_post_id, true );
+            if($post_id){
+                echo json_encode(array('status' => 'ok', 'action'=> 'Supprimer', 'message'=>__('le post id a bien été delete avec succés des favoris de l\'utilisateur')));
+            } else {
+            echo json_encode(array('status' => 'error', 'action'=> 'Supprimer', 'message'=>__('Une erreur est survenue lors de la suppression')));
+            }
+        } else {
+        $numeroWishlist = 'fav_'.$current_user_id.'_'.$current_post_id;      
+            $my_post = array(
+                'post_title' => $numeroWishlist,
+                'post_date' => date('Y-m-d H:i:s'),
+                'post_status' => 'publish',
+                'post_author' => get_current_user_id(),
+                'post_type' => 'wishlist');
+            $post_id = wp_insert_post($my_post);
+
+            if($post_id){
+                update_field('num_wishlist', $numeroWishlist, $post_id);
+                update_field('post_id', $current_post_id, $post_id);
+                update_field('id_auteur', $current_user_id, $post_id);
+                update_field('fav_wishlist', false, $post_id);
+
+                echo json_encode(array('status' => 'ok' ,'action'=> 'Ajouter', 'message'=>__('le post id a bien été ajouter avec succés dans les favoris de l\'utilisateur')));
+            } else {
+                echo json_encode(array('status' => 'error' ,'action'=> 'Ajouter', 'message'=>__('Une erreur est survenue lors de la sauvegarde')));
+            }
+        }
+    } else {
+        echo json_encode(array('status' => 'error' ,'action'=> 'manager_fav', 'message'=>__('post ID non défini')));
+    }
+    die();
+}
+
+
+
+
+
+function add_js_scripts_create_wishlist() {
+    wp_enqueue_script( 'script-create-wishlist', get_template_directory_uri().'/js/create-wishlist.js', array('jquery'));
+
+    // pass Ajax Url to script.js
+        wp_localize_script( 'script-create-wishlist', 'ajax_create_wishlist_object', array( 
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    ));
+
+    add_action( 'wp_ajax_create_wishlist', 'create_wishlist' );
+    add_action( 'wp_ajax_nopriv_create_wishlist', 'create_wishlist' );
+}
+add_action('init', 'add_js_scripts_create_wishlist');
+
+
+ 
+function create_wishlist() {
+    $current_user_id = get_current_user_id();
+    if ( isset($_POST['wishlist_name']) && !empty($_POST['wishlist_name'])) {
+        $name = $_POST['wishlist_name'];
+        if ( isset($_POST['postID']) && !empty($_POST['postID'])) {
+            $current_post_id = $_POST['postID'];
+            $numeroWishlist = 'wish_' . $current_user_id . '_' . $name . '_' . time();      
+            $my_post = array(
+                'post_title' => $numeroWishlist,
+                'post_date' => date('Y-m-d H:i:s'),
+                'post_status' => 'publish',
+                'post_author' => get_current_user_id(),
+                'post_type' => 'wishlist');
+            $post_id = wp_insert_post($my_post);
+
+            if($post_id){
+                update_field('num_wishlist', $numeroWishlist, $post_id);
+                update_field('nom_wishlist', $name, $post_id);
+                update_field('post_id', $current_post_id, $post_id);
+                update_field('id_auteur', $current_user_id, $post_id);
+                update_field('fav_wishlist', true, $post_id);
+
+                echo json_encode(array('status' => 'ok' ,'action'=> 'Ajouter', 'message'=>__('la wishlist a bien été crée')));
+            } else {
+                echo json_encode(array('status' => 'error' ,'action'=> 'Ajouter', 'message'=>__('Une erreur est survenue lors de la creation de la wishlist')));
+            }
+        } else {
+            echo json_encode(array('status' => 'error' ,'action'=> 'Ajouter', 'message'=>__('Une erreur est survenue lors de la création de la wishlist - le post id n\'a pas été défini')));
+        }
+    } else {
+            echo json_encode(array('status' => 'error' ,'action'=> 'Ajouter', 'message'=>__('Une erreur est survenue lors de la création de la wishlist - le nom de la wishlist n\'a pas été défini')));
+    }
+    die();
+}
+
+
+
+
+
+function add_js_scripts_add_wishlist() {
+    wp_enqueue_script( 'script-add-wishlist', get_template_directory_uri().'/js/add-wishlist.js', array('jquery'));
+
+    // pass Ajax Url to script.js
+        wp_localize_script( 'script-add-wishlist', 'ajax_add_wishlist_object', array( 
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    ));
+
+    add_action( 'wp_ajax_add_wishlist', 'add_wishlist' );
+    add_action( 'wp_ajax_nopriv_add_wishlist', 'add_wishlist' );
+}
+add_action('init', 'add_js_scripts_add_wishlist');
+
+
+
+function add_wishlist() {
+    if(isset($_POST['wishlist_num']) && !empty($_POST['wishlist_num'])){
+        if((isset($_POST['postID']) && !empty($_POST['postID'])) && (isset($_POST['name']) && !empty($_POST['name']))){
+            $num = $_POST['wishlist_num'];
+            $current_post_id = $_POST['postID'];
+            $current_name = $_POST['name'];
+            $current_user_id = get_current_user_id();
+
+            $args = array(
+                'numberposts'   => -1,
+                'post_type'     => 'wishlist',
+                'meta_query'    => array(
+                    'relation'      => 'AND',
+                    array(
+                        'key'       => 'fav_wishlist',
+                        'value'     => true,
+                        'compare'   => '='
+                    ),
+                    array(
+                        'key'       => 'id_auteur',
+                        'value'     => $current_user_id,
+                        'compare'   => '='
+                    ),
+                    array(
+                        'key'       => 'num_wishlist',
+                        'value'     => $num,
+                        'compare'   => '='
+                    ),
+                    array(
+                        'key'       => 'post_id',
+                        'value'     => $current_post_id,
+                        'compare'   => '='
+                    )
+                )
+            );
+            $the_query = new WP_Query( $args );
+            if( $the_query->have_posts() ) {
+                while ($the_query->have_posts() ) : $the_query->the_post();
+                    $loop_post_id = get_the_ID();
+                endwhile;
+                $post_id = wp_delete_post( $loop_post_id, true );
+                if($post_id){
+                    echo json_encode(array('status' => 'ok', 'action'=> 'Supprimer', 'message'=>__('le post à bien été retiré de la wishlist')));
+                } else {
+                echo json_encode(array('status' => 'error', 'action'=> 'Supprimer', 'message'=>__('Une erreur est survenue lors de la suppression du post de la wishlist')));
+                }
+            } else {
+                $my_post = array(
+                    'post_title' => $num,
+                    'post_date' => date('Y-m-d H:i:s'),
+                    'post_status' => 'publish',
+                    'post_author' => get_current_user_id(),
+                    'post_type' => 'wishlist');
+                $post_id = wp_insert_post($my_post);
+
+                if($post_id){
+                    update_field('num_wishlist', $num, $post_id);
+                    update_field('post_id', $current_post_id, $post_id);
+                    update_field('id_auteur', $current_user_id, $post_id);
+                    update_field('nom_wishlist', $current_name, $post_id);
+                    update_field('fav_wishlist', true, $post_id);
+
+                    echo json_encode(array('status' => 'ok' ,'action'=> 'Ajouter', 'message'=>__('le post id a bien été ajouter avec succés dans la wishlist souhaité')));
+                } else {
+                    echo json_encode(array('status' => 'error' ,'action'=> 'Ajouter', 'message'=>__('Une erreur est survenue lors de la sauvegarde du post dans la wishlist')));
+                }
+            }
+        } else {
+            echo json_encode(array('status' => 'error' ,'action'=> 'add_wishlist', 'message'=>__('une erreur est survenue avec les données transmises(postID et name)')));
+        }
+    } else {
+            echo json_encode(array('status' => 'error' ,'action'=> 'add_wishlist', 'message'=>__('une erreur est survenue avec les données transmises(wishlist_num)')));
+    }
+    die();
+}
+
+
+
+
 
 if (!isset($content_width))
 {

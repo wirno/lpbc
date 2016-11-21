@@ -4,7 +4,7 @@ window.onload = function () {
 		// HEADER
 		// Dropdown language
 		$('.dropdown-wrapper').click(function() {
-			$('.dropdown-button').toggleClass('active');
+			$(this).children('.dropdown-button').toggleClass('active');
 		});
 
 		// SLIDERS HOME
@@ -192,7 +192,7 @@ window.onload = function () {
 
 	    // Chrome autofill + FORM
 	    $('.button-form').click(function() {
-	    	$('.button-hidden').click();
+	    	$(this).parent().prev('form').find('.button-hidden').click();
 	    });
 
 	    if ($.browser) {

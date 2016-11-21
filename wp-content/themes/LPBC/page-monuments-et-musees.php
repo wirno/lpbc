@@ -223,6 +223,7 @@
                                 <?php if(isset($terms_region[0])) {
                                     print(" - " . $terms_region[0]->slug);
                                 } ?>
+                            </p>
 
 								</span>
 

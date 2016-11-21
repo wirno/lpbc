@@ -42,9 +42,27 @@
 									</ul>
 								</div>
 							</div>
-							<div class="settings-button connection-wrapper">
-								<a class="connection" href="#modal-connection">Connexion</a>
+
+
+						<?php if(is_user_logged_in()) {?>
+							<div class="settings-button dropdown-wrapper">
+								<div class="dropdown-button" tabindex="1">
+									<span>Compte</span>
+									<ul id="dd" class="dropdown wrapper-dropdown-7" style="width:90px;">
+										<li><a href="#">Dashboard</a></li>
+										<li><a href="<?= get_permalink(get_page_by_title('mes favoris')); ?>">Favoris</a></li>
+										<li><a href="<?php echo wp_logout_url( home_url() ); ?>">Signout</a></li>
+									</ul>
+								</div>
 							</div>
+						<?php } else { ?>
+							<div class="settings-button connection-wrapper">
+							    <a class="connection" href="#modal-connection">Connexion</a>
+							</div>
+						<?php } ?>
+
+
+
 						</div>
 					</div>
 					<div class="nav-bar">
