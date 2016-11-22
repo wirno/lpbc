@@ -1431,6 +1431,11 @@ ul, li {
   font-size: 9px;
   color: #f3f3f3;
   letter-spacing: 1px; }
+#home-articles .right .banner .overlay .content-banner .tags span p {
+  font-family: 'latomedium_italic' !important;
+  font-size: 9px !important;
+  color: #f3f3f3 !important;
+  letter-spacing: 1px !important; }
 #home-articles .right .banner .overlay .content-banner .tags span p a:first-child {
   margin-left: 4px; }
 #home-articles .right .banner .overlay .content-banner .tags span p a:hover {
